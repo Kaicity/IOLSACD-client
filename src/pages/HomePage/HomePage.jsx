@@ -2,7 +2,9 @@ import BlogCard from "../../components/BlogCard";
 
 import { useNavigate } from "react-router-dom";
 import Slider from "../../components/Slider";
-import { Blogcard_1 } from "../../assets";
+import { Banner, Blogcard_1 } from "../../assets";
+import ContentSection from "../../components/contentSection/ContentSection";
+import Carousel from "../../components/serviceComponents/Caurousel";
 
 function HomePage() {
   const nagivate = useNavigate();
@@ -11,18 +13,11 @@ function HomePage() {
     <div>
       <Slider />
       {/* <Community /> */}
-
+      <div className="py-4 invisible">=========SPACING============</div>
       <BlogCard
         path={"/products"}
         imageUrl={Blogcard_1}
-        title={
-          <>
-            DẪN ĐẦU CÔNG NGHỆ AI{" "}
-            <span className="text-brandSecondary font-semibold">
-              TRONG LĨNH VỰC CÔNG NGHỆ THÔNG TIN
-            </span>{" "}
-          </>
-        }
+        title={"DẪN ĐẦU CÔNG NGHỆ AI 2025"}
         content={
           <>
             <p>
@@ -50,8 +45,29 @@ function HomePage() {
           </>
         }
         showBtn={true}
-        btnContent="Xem sản phẩm"
+        btnContent="Xem thêm"
       />
+
+      <div className="py-4 invisible">=========SPACING============</div>
+
+      <ContentSection
+        header={"Dịch vụ luật sư"}
+        content={
+          "Tiên phong cung cấp giải pháp pháp lý tổng thể và đồng hành cùng doanh nghiệp"
+        }
+      />
+
+      <Carousel />
+
+      <div className="py-4 invisible">=========SPACING============</div>
+
+      <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
+        <img
+          src={Banner}
+          alt=""
+          className="w-full h-auto max-h-[500px] object-cover rounded-md"
+        />
+      </div>
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16"></div>
     </div>

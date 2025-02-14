@@ -1,43 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import Card from './Card';
+import React, { useState, useEffect } from "react";
+import Card from "./Card";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Carousel = () => {
   const cardArray = [
     {
-      img: 'https://picsum.photos/200?random=1',
-      header: 'Tiêu đề Demo 1',
-      content: 'Nội dung ngắn gọn ở đây 1',
+      img: "https://picsum.photos/200?random=1",
+      header: "Tiêu đề Demo 1",
+      content: "Chưa có nội dung",
     },
     {
-      img: 'https://picsum.photos/200?random=2',
-      header: 'Tiêu đề Demo 2',
-      content: 'Nội dung ngắn gọn ở đây 2',
+      img: "https://picsum.photos/200?random=2",
+      header: "Tiêu đề Demo 2",
+      content: "Chưa có nội dung",
     },
     {
-      img: 'https://picsum.photos/200?random=3',
-      header: 'Tiêu đề Demo 3',
-      content: 'Nội dung ngắn gọn ở đây 3',
+      img: "https://picsum.photos/200?random=3",
+      header: "Tiêu đề Demo 3",
+      content: "Chưa có nội dung",
     },
     {
-      img: 'https://picsum.photos/200?random=4',
-      header: 'Tiêu đề Demo 4',
-      content: 'Nội dung ngắn gọn ở đây 4',
+      img: "https://picsum.photos/200?random=4",
+      header: "Tiêu đề Demo 4",
+      content: "Chưa có nội dung",
     },
     {
-      img: 'https://picsum.photos/200?random=5',
-      header: 'Tiêu đề Demo 5',
-      content: 'Nội dung ngắn gọn ở đây 5',
+      img: "https://picsum.photos/200?random=5",
+      header: "Tiêu đề Demo 5",
+      content: "Chưa có nội dung",
     },
     {
-      img: 'https://picsum.photos/200?random=6',
-      header: 'Tiêu đề Demo 6',
-      content: 'Nội dung ngắn gọn ở đây 6',
+      img: "https://picsum.photos/200?random=6",
+      header: "Tiêu đề Demo 6",
+      content: "Chưa có nội dung",
     },
     {
-      img: 'https://picsum.photos/200?random=7',
-      header: 'Tiêu đề Demo 7',
-      content:
-        'Nội dung ngắn gọn ở đây Nội dung ngắn gọđây Nội dung ngắn gọ  đây Nội dung ngắn gọn ở đây Nội dung ngắn gọn ở đây Nội dung ngắn gọn ở đây',
+      img: "https://picsum.photos/200?random=7",
+      header: "Tiêu đề Demo 7",
+      content: "Chưa có nội dung",
     },
   ];
 
@@ -62,8 +62,8 @@ const Carousel = () => {
     };
 
     updateCardsPerView();
-    window.addEventListener('resize', updateCardsPerView);
-    return () => window.removeEventListener('resize', updateCardsPerView);
+    window.addEventListener("resize", updateCardsPerView);
+    return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -100,19 +100,23 @@ const Carousel = () => {
       </div>
       {/* Nút điều hướng Prev */}
       <button
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary  rounded-full h-12 w-12 text-white"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white"
         onClick={handlePrev}
         disabled={activeIndex === 0}
       >
-        {'<'}
+        <div className="p-2">
+          <ChevronLeft className="w-6 h-6" />
+        </div>
       </button>
       {/* Nút điều hướng Next */}
       <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary  rounded-full h-12 w-12 text-white "
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white"
         onClick={handleNext}
         disabled={activeIndex >= cardArray.length - cardsPerView}
       >
-          {'>'}
+        <div className="p-3">
+          <ChevronRight className="w-6 h-6" />
+        </div>
       </button>
     </div>
   );

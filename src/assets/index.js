@@ -12,6 +12,8 @@ import Logo from "./logo/logo.png";
 //====================FLAG=====================
 import VietnamFlag from "./language-icon/vietnam.png";
 import UKFlag from "./language-icon/united-kingdom.png";
+//====================BANNER===================
+import Banner from "./banner/banner.png";
 
 export {
   PartnerShip,
@@ -23,4 +25,5 @@ export {
   Logo,
   VietnamFlag,
   UKFlag,
+  Banner,
 };

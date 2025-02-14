@@ -19,7 +19,7 @@ const BlogCard = ({ imageUrl, title, content, showBtn, btnContent, path }) => {
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-4xl font-semibold text-neutralDGrey mb-4">
+          <h2 className="text-4xl font-extrabold text-brandSecondary mb-4">
             {title}
           </h2>
           <p className="text-black text-md leading-6 mb-8">{content}</p>
@@ -27,7 +27,7 @@ const BlogCard = ({ imageUrl, title, content, showBtn, btnContent, path }) => {
           {showBtn && (
             <button
               onClick={() => navigate(path)}
-              className="block ml-auto px-7 py-4 bg-brandSecondary text-white hover:bg-neutralDGrey transition-all duration-300 hover:-translate-y-4"
+              className="rounded-md block ml-auto px-4 py-2 bg-brandSecondary text-white hover:bg-neutralDGrey transition-all duration-300 hover:-translate-y-4"
             >
               {btnContent}
             </button>
