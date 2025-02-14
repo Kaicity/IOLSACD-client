@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 
-function Contact() {
+function ContactPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -92,4 +92,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactPage;

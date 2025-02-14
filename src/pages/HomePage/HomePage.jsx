@@ -1,8 +1,8 @@
-import BlogCard from "../components/BlogCard";
+import BlogCard from "../../components/BlogCard";
 
 import { useNavigate } from "react-router-dom";
-import Slider from "../components/Slider";
-import { Blogcard_1 } from "../assets";
+import Slider from "../../components/Slider";
+import { Blogcard_1 } from "../../assets";
 
 function HomePage() {
   const nagivate = useNavigate();
