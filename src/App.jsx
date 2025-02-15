@@ -5,10 +5,10 @@ import Header from "./components/Header";
 import SharingContact from "./components/SharingContact";
 import Banner from "./components/Banner";
 import SubFooter from "./components/SubFooter";
-// import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import LogoWrapper from "./components/LogoWrapper";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Header />
       <LogoWrapper />
       <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<></>} />
         <Route path="/contact" element={<ContactPage />} />
 

@@ -1,5 +1,4 @@
 import BlogCard from "../../components/BlogCard";
-
 import { useNavigate } from "react-router-dom";
 import CarouselBanner from "../../components/CarouselBanner";
 import { Banner, Blogcard_1 } from "../../assets";
