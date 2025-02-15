@@ -5,6 +5,7 @@ import Slider from "../../components/Slider";
 import { Banner, Blogcard_1 } from "../../assets";
 import ContentSection from "../../components/contentSection/ContentSection";
 import Carousel from "../../components/serviceComponents/Caurousel";
+import ILCKnowledgeSection from "../../components/KnowledgeSection/ILCKnowledgeSection";
 
 function HomePage() {
   const nagivate = useNavigate();
@@ -59,6 +60,7 @@ function HomePage() {
 
       <Carousel />
 
+
       <div className="py-4 invisible">=========SPACING============</div>
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
@@ -68,6 +70,7 @@ function HomePage() {
           className="w-full h-auto max-h-[500px] object-cover rounded-md"
         />
       </div>
+      <ILCKnowledgeSection/>
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16"></div>
     </div>
