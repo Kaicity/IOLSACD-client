@@ -51,10 +51,10 @@ const Header = () => {
       <div
         className={clsx(
           "hidden md:flex items-center h-full",
-          scrollY > 120 ? "justify-center" : "justify-end mr-40"
+          scrollY > 120 ? "justify-center" : "justify-end mr-[480px]"
         )}
       >
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-16">
           <a className="text-md font-medium" href="/sale">
             TRANG CHỦ
           </a>
