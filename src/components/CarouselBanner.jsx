@@ -32,7 +32,7 @@ const CarouselBanner = () => {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-80px)] overflow-hidden relative">
+    <div className="h-[calc(100vh-80px)] overflow-hidden relative shadow-lg">
       <div
         className="w-max h-full flex transition-all ease-in-out duration-1000"
         style={{ transform: `translateX(-${current * 100}vw)` }}

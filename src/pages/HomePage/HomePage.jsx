@@ -7,13 +7,37 @@ import ContentSection from "../../components/ContentSection";
 import ILCKnowledgeSection from "../../components/KnowledgeSection/ILCKnowledgeSection";
 import SliderCardsItem from "../../components/SliderCardsItem";
 
+const servicesArray = [
+  {
+    img: "https://picsum.photos/200?random=1",
+  },
+  {
+    img: "https://picsum.photos/200?random=2",
+  },
+  {
+    img: "https://picsum.photos/200?random=3",
+  },
+  {
+    img: "https://picsum.photos/200?random=4",
+  },
+  {
+    img: "https://picsum.photos/200?random=5",
+  },
+  {
+    img: "https://picsum.photos/200?random=6",
+  },
+  {
+    img: "https://picsum.photos/200?random=7",
+  },
+];
+
 function HomePage() {
   const nagivate = useNavigate();
 
   return (
     <div>
       <CarouselBanner />
-      {/* <Community /> */}
+
       <div className="py-4 invisible">=========SPACING============</div>
       <BlogCard
         path={"/products"}
@@ -93,7 +117,25 @@ function HomePage() {
 
       <SliderCardsItem isCardVideo={true} isPrevNextBtn={false} />
 
-      <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16"></div>
+      <div className="py-4 invisible">=========SPACING============</div>
+
+      <ContentSection header={"ĐỐI TÁC KHÁCH HÀNG"} content={""} />
+
+      {/* <Community /> */}
+
+      <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
+        <div className="flex items-center gap-4 px-16">
+          {servicesArray.map((service, index) => (
+            <div className="cursor-pointer">
+              <img
+                src={service.img}
+                alt={""}
+                className=" p-2 h-[110px] w-[200px] mx-auto"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

@@ -5,11 +5,11 @@ import React from "react";
 
 function Banner() {
   return (
-    <div className="relative isolate flex flex-wrap items-center gap-x-6 overflow-hidden bg-brandPrimary px-10 py-5 sm:px-6 sm:before:flex-1 text-white">
+    <div className="relative isolate flex flex-wrap items-center gap-x-6 overflow-hidden bg-brandPrimary px-10 py-3 sm:px-6 sm:before:flex-1 text-white">
       <div className="flex flex-1 justify-start mt-4 sm:mt-0"></div>
 
       {/* Chữ chạy từ phải sang trái nhưng chỉ trong khu vực của nó */}
-      <div className="w-[480px] overflow-hidden">
+      <div className="w-[380px] overflow-hidden">
         <div className="flex whitespace-nowrap animate-[marquee_10s_linear_infinite]">
           <p className="text-xl font-semibold text-white">
             CÔNG TY KHOA HỌC CÔNG NGHỆ PHẦN MỀM
@@ -49,7 +49,12 @@ function Banner() {
             </a>
 
             <a href="/">
-              <img src={ChinaFlag} alt="ChinaFlag" width={35} className="sm:w-10" />
+              <img
+                src={ChinaFlag}
+                alt="ChinaFlag"
+                width={35}
+                className="sm:w-10"
+              />
             </a>
           </div>
         </p>
