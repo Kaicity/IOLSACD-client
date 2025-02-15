@@ -49,7 +49,7 @@ const Header = () => {
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden md:flex items-center justify-center h-full">
+      <div className="hidden md:flex items-center justify-end h-full mr-36">
         <div className="flex items-center gap-12">
           <a className="text-md font-medium" href="/sale">
             TRANG CHỦ

@@ -1,23 +1,24 @@
 import BlogCard from "../../components/BlogCard";
 
 import { useNavigate } from "react-router-dom";
-import Slider from "../../components/Slider";
+import CarouselBanner from "../../components/CarouselBanner";
 import { Banner, Blogcard_1 } from "../../assets";
-import ContentSection from "../../components/contentSection/ContentSection";
-import Carousel from "../../components/serviceComponents/Caurousel";
+import ContentSection from "../../components/ContentSection";
+import SliderCardsItem from "../../components/SliderCardsItem";
 
 function HomePage() {
   const nagivate = useNavigate();
 
   return (
     <div>
-      <Slider />
+      <CarouselBanner />
       {/* <Community /> */}
       <div className="py-4 invisible">=========SPACING============</div>
       <BlogCard
         path={"/products"}
         imageUrl={Blogcard_1}
         title={"DẪN ĐẦU CÔNG NGHỆ AI 2025"}
+        subTitle={"CÔNG CUỘC - PHÁT TRIỂN - ĐỔI MỚI"}
         content={
           <>
             <p>
@@ -51,15 +52,13 @@ function HomePage() {
       <div className="py-4 invisible">=========SPACING============</div>
 
       <ContentSection
-        header={"Dịch vụ luật sư"}
+        header={"DỊCH VỤ KHÁCH HÀNG"}
         content={
           "Tiên phong cung cấp giải pháp pháp lý tổng thể và đồng hành cùng doanh nghiệp"
         }
       />
 
-      <Carousel />
-
-      <div className="py-4 invisible">=========SPACING============</div>
+      <SliderCardsItem isCard={true} />
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
         <img
@@ -68,6 +67,15 @@ function HomePage() {
           className="w-full h-auto max-h-[500px] object-cover rounded-md"
         />
       </div>
+
+      <ContentSection
+        header={"KHÁM PHÁ CÔNG NGHỆ"}
+        content={
+          "Tính đến năm 2025 công nghệ trí tuệ nhân tạo AI phát triển mạnh mẽ"
+        }
+      />
+
+      <SliderCardsItem isCardAvatar={true} />
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16"></div>
     </div>

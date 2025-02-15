@@ -5,20 +5,21 @@ import React from "react";
 
 function Banner() {
   return (
-    <div className="relative isolate flex flex-wrap items-center gap-x-6 overflow-hidden bg-brandPrimary px-6 py-5 sm:px-3.5 sm:before:flex-1 text-white">
-      <div
-        aria-hidden="true"
-        className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
-      ></div>
+    <div className="relative isolate flex flex-wrap items-center gap-x-6 overflow-hidden bg-brandPrimary px-10 py-5 sm:px-6 sm:before:flex-1 text-white">
+      <div className="flex flex-1 justify-start mt-4 sm:mt-0"></div>
+
+      {/* Chữ chạy từ phải sang trái nhưng chỉ trong khu vực của nó */}
+      <div className="w-[480px] overflow-hidden">
+        <div className="flex whitespace-nowrap animate-[marquee_10s_linear_infinite]">
+          <p className="text-xl font-semibold text-white">
+            CÔNG TY KHOA HỌC CÔNG NGHỆ PHẦN MỀM
+          </p>
+        </div>
+      </div>
 
       {/* Phần thông tin chính */}
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 w-full sm:w-auto">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 w-full sm:w-auto ml-auto">
         <p className="text-sm text-white flex flex-wrap items-center gap-4">
-          {/* Tên công ty */}
-          <strong className="font-semibold w-full sm:w-auto">
-            CÔNG TY KHOA HỌC CÔNG NGHỆ PHẦN MỀM
-          </strong>
-
           {/* Email */}
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5" />
@@ -39,26 +40,19 @@ function Banner() {
               <img
                 src={VietnamFlag}
                 alt="Vietnam"
-                width={30}
+                width={35}
                 className="sm:w-10"
               />
             </a>
             <a href="/">
-              <img src={UKFlag} alt="UK" width={30} className="sm:w-10" />
+              <img src={UKFlag} alt="UK" width={35} className="sm:w-10" />
             </a>
           </div>
         </p>
       </div>
 
       {/* Nút bên phải */}
-      <div className="flex flex-1 justify-end mt-4 sm:mt-0">
-        <button
-          type="button"
-          className="-m-3 p-3 focus-visible:outline-offset-[-4px]"
-        >
-          <span className="sr-only">Tìm hiểu thêm</span>
-        </button>
-      </div>
+      <div className="flex flex-1 justify-end mt-4 sm:mt-0"></div>
     </div>
   );
 }

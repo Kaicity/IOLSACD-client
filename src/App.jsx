@@ -8,9 +8,7 @@ import SubFooter from "./components/SubFooter";
 import HomePage from "./pages/HomePage/Homepage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
-import ContentSection from "./components/contentSection/ContentSection";
-import Card from "./components/serviceComponents/Card";
-import Caurousel from "./components/serviceComponents/Caurousel";
+import LogoWrapper from "./components/LogoWrapper";
 
 function App() {
   const cardData = {
@@ -23,6 +21,7 @@ function App() {
     <Router>
       <Banner />
       <Header />
+      <LogoWrapper />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<></>} />
