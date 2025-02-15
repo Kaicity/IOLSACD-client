@@ -66,6 +66,25 @@ function SharingContact() {
               </div>
             </a>
           </li>
+
+          {/* Facebook */}
+          <li>
+            <a
+              href="https://www.facebook.com/messages/t/YOUR_PAGE_ID"
+              target="_blank"
+              rel="nofollow"
+              className="group flex flex-col items-center"
+            >
+              <div className="relative">
+                <span className="absolute inset-0 w-full h-full rounded-full border-4 border-brandPrimary animate-pulse-border"></span>
+                <img
+                  src="https://themayanagari.com/wp-content/uploads/2020/09/Facebook-Logo-Png-Image-Free-Download.jpg"
+                  alt="Chat với chúng tôi qua Facebook"
+                  className="w-14 h-14 rounded-full shadow-md transition-transform group-hover:scale-110"
+                />
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
       <div className="fixed bottom-10 right-5 z-50 flex flex-col items-center space-y-4">

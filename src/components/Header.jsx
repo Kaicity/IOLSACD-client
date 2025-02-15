@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../assets";
+import clsx from "clsx";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setIsSticky(true);
-      } else {
-        setIsSticky(false);
-      }
+      setScrollY(window.scrollY);
+      setIsSticky(window.scrollY > 100);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -35,7 +34,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="h-16 px-4 md:px-8 lg:px-6 xl:32 2xl:px-32 sticky top-0 bg-white z-50 shadow-sm">
+    <div className="h-16 px-4 md:px-8 lg:px-6 xl:32 2xl:px-32 sticky top-0 bg-white z-50 shadow-lg">
       <div className="h-full flex items-center justify-between md:hidden">
         {/* MOBILE */}
         <a href="/">
@@ -49,7 +48,12 @@ const Header = () => {
       </div>
 
       {/* DESKTOP */}
-      <div className="hidden md:flex items-center justify-end h-full mr-36">
+      <div
+        className={clsx(
+          "hidden md:flex items-center h-full",
+          scrollY > 120 ? "justify-center" : "justify-end mr-40"
+        )}
+      >
         <div className="flex items-center gap-12">
           <a className="text-md font-medium" href="/sale">
             TRANG CHỦ
@@ -85,9 +89,6 @@ const Header = () => {
           </a>
           <a className="text-md font-medium" href="/about">
             TIN TỨC
-          </a>
-          <a className="text-md font-medium" href="/about">
-            KIẾN THỨC VỀ LUẬT
           </a>
           <a className="text-md font-medium" href="/contact">
             LIÊN HỆ
