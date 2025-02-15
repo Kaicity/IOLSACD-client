@@ -3,7 +3,15 @@ import { motion } from "framer-motion";
 import { fadeInFramer } from "../helper/fadeInFramer.js";
 import { useNavigate } from "react-router-dom";
 
-const BlogCard = ({ imageUrl, title, content, showBtn, btnContent, path }) => {
+const BlogCard = ({
+  imageUrl,
+  title,
+  subTitle,
+  content,
+  showBtn,
+  btnContent,
+  path,
+}) => {
   const navigate = useNavigate();
 
   return (
@@ -19,8 +27,11 @@ const BlogCard = ({ imageUrl, title, content, showBtn, btnContent, path }) => {
           whileInView="show"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-4xl font-extrabold text-brandSecondary mb-4">
+          <h2 className="text-4xl font-extrabold text-brandSecondary mb-2">
             {title}
+          </h2>
+          <h2 className="text-xl font-light text-neutralDGrey mb-4">
+            {subTitle}
           </h2>
           <p className="text-black text-md leading-6 mb-8">{content}</p>
 

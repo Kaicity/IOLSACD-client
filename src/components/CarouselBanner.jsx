@@ -19,7 +19,8 @@ const slides = [
     bg: "bg-gradient-to-r from-yellow-50 to-pink-50",
   },
 ];
-const Slider = () => {
+
+const CarouselBanner = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
@@ -86,4 +87,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
+export default CarouselBanner;

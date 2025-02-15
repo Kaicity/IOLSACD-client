@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { User_1, User_2, User_3, User_4, User_5 } from "../assets";
+import CardAvatar from "./CardAvatar";
+import clsx from "clsx";
 
-const Carousel = () => {
+const SliderCardsItem = ({ isCard, isCardAvatar }) => {
   const cardArray = [
     {
       img: "https://picsum.photos/200?random=1",
@@ -38,6 +41,51 @@ const Carousel = () => {
       img: "https://picsum.photos/200?random=7",
       header: "Tiêu đề Demo 7",
       content: "Chưa có nội dung",
+    },
+  ];
+
+  const userAvatarsArray = [
+    {
+      id: 1,
+      img: User_1,
+      name: "NGUYỄN MINH THÔNG",
+      title: "Lập Trình Viên Front-end",
+    },
+    {
+      id: 2,
+      img: User_2,
+      name: "ALEXANDER KHỜ KHẠO",
+      title: "Chuyên viên Tư Vấn",
+    },
+    {
+      id: 3,
+      img: User_3,
+      name: "LÊ ĐÔ THỨ",
+      title: "CTO Cozwork",
+    },
+    {
+      id: 4,
+      img: User_4,
+      name: "HOÀNG ĐÌNH THẢO",
+      title: "Nhân Viên IT Devops",
+    },
+    {
+      id: 5,
+      img: User_5,
+      name: "NGUYỄN QUANG TIẾN",
+      title: "Lập Trình Viên Front-end",
+    },
+    {
+      id: 6,
+      img: User_1,
+      name: "NGUYỄN MINH THÔNG",
+      title: "Lập Trình Viên Front-end",
+    },
+    {
+      id: 7,
+      img: User_2,
+      name: "NGUYỄN QUANG TIẾN",
+      title: "Lập Trình Viên Front-end",
     },
   ];
 
@@ -82,25 +130,50 @@ const Carousel = () => {
 
   return (
     <div className="max-w-7xl mx-auto w-11/12 relative overflow-hidden py-10">
-      <div
-        className="flex transition-transform duration-500 ease-in-out"
-        style={{
-          transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
-        }}
-      >
-        {cardArray.map((card, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 px-2"
-            style={{ width: `${100 / cardsPerView}%` }}
-          >
-            <Card {...card} />
-          </div>
-        ))}
-      </div>
+      {isCard && (
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+          }}
+        >
+          {cardArray.map((card, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 px-2"
+              style={{ width: `${100 / cardsPerView}%` }}
+            >
+              <Card {...card} />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {isCardAvatar && (
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+          }}
+        >
+          {userAvatarsArray.map((card, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 px-2"
+              style={{ width: `${100 / cardsPerView}%` }}
+            >
+              <CardAvatar {...card} />
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Nút điều hướng Prev */}
       <button
-        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white"
+        className={clsx(
+          "absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
+          activeIndex === 0 && "cursor-not-allowed"
+        )}
         onClick={handlePrev}
         disabled={activeIndex === 0}
       >
@@ -110,7 +183,11 @@ const Carousel = () => {
       </button>
       {/* Nút điều hướng Next */}
       <button
-        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white"
+        className={clsx(
+          "absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
+          activeIndex === cardArray.length - cardsPerView &&
+            "cursor-not-allowed"
+        )}
         onClick={handleNext}
         disabled={activeIndex >= cardArray.length - cardsPerView}
       >
@@ -122,4 +199,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default SliderCardsItem;

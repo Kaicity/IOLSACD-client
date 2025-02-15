@@ -3,7 +3,9 @@ import React from "react";
 export default function ContentSection({ header, content }) {
   return (
     <div className="max-w-7xl mx-auto text-black w-1/2 text-center px-2">
-      <h3 className="text-brandSecondary font-bold text-3xl mb-2">{header}</h3>
+      <h2 className="text-4xl font-extrabold text-brandSecondary mb-2">
+        {header}
+      </h2>
       <span className="text-neutralDGrey text-base">{content}</span>
 
       {/* Nếu muốn icon nằm giữa 2 đường kẻ */}
