@@ -3,8 +3,9 @@ import BlogCard from "../../components/BlogCard";
 import { useNavigate } from "react-router-dom";
 import CarouselBanner from "../../components/CarouselBanner";
 import { Banner, Blogcard_1 } from "../../assets";
-import ContentSection from "../../components/ContentSection";
-import SliderCardsItem from "../../components/SliderCardsItem";
+import ContentSection from "../../components/contentSection/ContentSection";
+import Carousel from "../../components/serviceComponents/Caurousel";
+import ILCKnowledgeSection from "../../components/KnowledgeSection/ILCKnowledgeSection";
 
 function HomePage() {
   const nagivate = useNavigate();
@@ -67,6 +68,7 @@ function HomePage() {
           className="w-full h-auto max-h-[500px] object-cover rounded-md"
         />
       </div>
+      <ILCKnowledgeSection/>
 
       <ContentSection
         header={"KHÁM PHÁ CÔNG NGHỆ"}
