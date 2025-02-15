@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { User_1, User_2, User_3, User_4, User_5 } from "../assets";
+import { User_1, User_2, User_3, User_4, User_5,User_6,pvt} from "../assets";
 import CardAvatar from "./CardAvatar";
 import clsx from "clsx";
 import CardVideo from "./CardVideo";
@@ -53,15 +53,15 @@ const SliderCardsItem = ({
   const userAvatarsArray = [
     {
       id: 1,
-      img: User_1,
-      name: "NGUYỄN MINH THÔNG",
-      title: "Lập Trình Viên Front-end",
+      img: User_6,
+      name: "VIỆN TRƯỞNG",
+      title: "VIỆN TRƯỞNG",
     },
     {
       id: 2,
-      img: User_2,
-      name: "ALEXANDER KHỜ KHẠO",
-      title: "Chuyên viên Tư Vấn",
+      img: pvt,
+      name: "PHÓ VIỆN TRƯỞNG",
+      title: "PHÓ VIỆN TRƯỞNG",
     },
     {
       id: 3,
@@ -77,8 +77,8 @@ const SliderCardsItem = ({
     },
     {
       id: 5,
-      img: User_5,
-      name: "NGUYỄN QUANG TIẾN",
+      img: User_6,
+      name: "Viện Trưởng",
       title: "Lập Trình Viên Front-end",
     },
     {

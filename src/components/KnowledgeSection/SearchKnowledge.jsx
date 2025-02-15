@@ -21,10 +21,10 @@ const SearchKnowledge = () => {
         <h1 className="text-lg px-0.5 text-brandSecondary ">
           Tổng đài tư vấn Pháp luật
         </h1>
-        <h1 className="p-0.5 text-2xl">0482 110 223</h1>
+        <h1 className="p-0.5 text-2xl">{'(+84) 983 285 499'}</h1>
         <h1 className="mb-2">24/7</h1>
         <a
-          href=""
+          href="tel:+0983285499"
           className="bg-red-800 text-white p-2 my-2  inline-block rounded-md hover:opacity-80"
         >
           Gọi Ngay

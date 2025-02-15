@@ -1,5 +1,5 @@
 import { Mail, Phone } from "lucide-react";
-import { VietnamFlag, UKFlag } from "../assets/index";
+import { VietnamFlag, UKFlag, ChinaFlag } from "../assets/index";
 
 import React from "react";
 
@@ -46,6 +46,10 @@ function Banner() {
             </a>
             <a href="/">
               <img src={UKFlag} alt="UK" width={35} className="sm:w-10" />
+            </a>
+
+            <a href="/">
+              <img src={ChinaFlag} alt="ChinaFlag" width={35} className="sm:w-10" />
             </a>
           </div>
         </p>
