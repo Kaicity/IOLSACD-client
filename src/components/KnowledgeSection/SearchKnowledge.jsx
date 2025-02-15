@@ -1,5 +1,5 @@
 import React from "react";
-import {FaSearch} from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import img from "../../assets/knowledge/bob1.jpg";
 const SearchKnowledge = () => {
   return (
@@ -21,7 +21,7 @@ const SearchKnowledge = () => {
         <h1 className="text-lg px-0.5 text-brandSecondary ">
           Tổng đài tư vấn Pháp luật
         </h1>
-        <h1 className="p-0.5 text-2xl text- ">0482 110 223</h1>
+        <h1 className="p-0.5 text-2xl">0482 110 223</h1>
         <h1 className="mb-2">24/7</h1>
         <a
           href=""

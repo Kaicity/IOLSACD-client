@@ -4,8 +4,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { User_1, User_2, User_3, User_4, User_5 } from "../assets";
 import CardAvatar from "./CardAvatar";
 import clsx from "clsx";
+import CardVideo from "./CardVideo";
 
-const SliderCardsItem = ({ isCard, isCardAvatar }) => {
+const SliderCardsItem = ({
+  isCard,
+  isCardAvatar,
+  isCardVideo,
+  isPrevNextBtn,
+}) => {
   const cardArray = [
     {
       img: "https://picsum.photos/200?random=1",
@@ -89,6 +95,33 @@ const SliderCardsItem = ({ isCard, isCardAvatar }) => {
     },
   ];
 
+  const videosArray = [
+    {
+      id: 1,
+      title: "Fullstack Next.js/Nest.js với TypeScript",
+      img: "https://i.ytimg.com/vi/Sklc_fQBmcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDB36t3OPjX6fzEWigqBkR7kdsSQQ",
+      url: "https://www.youtube.com/watch?v=otDdLEScHNk",
+    },
+    {
+      id: 2,
+      img: "https://i.ytimg.com/vi/r7TytTlTED4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAF0iWyJiu9w_GGUnIlUdc11rI3Bw",
+      title: "JWT (JSON web token), sử dụng ngôn ngữ TypeScript",
+      url: "https://www.youtube.com/watch?v=otDdLEScHNk",
+    },
+    {
+      id: 3,
+      img: "https://i.ytimg.com/vi/N2_PE9_k3G8/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCiVz7SQgBfPMeUJnxsArS_9XLA4g",
+      title: "Donate hay mua cho mình cốc cà phê",
+      url: "https://www.youtube.com/watch?v=otDdLEScHNk",
+    },
+    {
+      id: 4,
+      img: "https://i.ytimg.com/vi/0s96dQCQox8/hq720.jpg?v=67b026cf&sqp=CKiOwb0G-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLA2mpkqr7Gu0MeeX_Q-qT0yr0oeYgQQ",
+      title: "CHAT GPT 2025",
+      url: "https://www.youtube.com/watch?v=otDdLEScHNk",
+    },
+  ];
+
   const [cardsPerView, setCardsPerView] = useState(4);
 
   useEffect(() => {
@@ -168,33 +201,56 @@ const SliderCardsItem = ({ isCard, isCardAvatar }) => {
         </div>
       )}
 
-      {/* Nút điều hướng Prev */}
-      <button
-        className={clsx(
-          "absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
-          activeIndex === 0 && "cursor-not-allowed"
-        )}
-        onClick={handlePrev}
-        disabled={activeIndex === 0}
-      >
-        <div className="p-2">
-          <ChevronLeft className="w-6 h-6" />
+      {isCardVideo && (
+        <div
+          className="flex transition-transform duration-500 ease-in-out"
+          style={{
+            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+          }}
+        >
+          {videosArray.map((card, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 px-2"
+              style={{ width: `${100 / cardsPerView}%` }}
+            >
+              <CardVideo {...card} />
+            </div>
+          ))}
         </div>
-      </button>
-      {/* Nút điều hướng Next */}
-      <button
-        className={clsx(
-          "absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
-          activeIndex === cardArray.length - cardsPerView &&
-            "cursor-not-allowed"
-        )}
-        onClick={handleNext}
-        disabled={activeIndex >= cardArray.length - cardsPerView}
-      >
-        <div className="p-3">
-          <ChevronRight className="w-6 h-6" />
+      )}
+
+      {isPrevNextBtn && (
+        <div>
+          {/* Nút điều hướng Prev */}
+          <button
+            className={clsx(
+              "absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
+              activeIndex === 0 && "cursor-not-allowed"
+            )}
+            onClick={handlePrev}
+            disabled={activeIndex === 0}
+          >
+            <div className="p-2">
+              <ChevronLeft className="w-6 h-6" />
+            </div>
+          </button>
+          {/* Nút điều hướng Next */}
+          <button
+            className={clsx(
+              "absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
+              activeIndex === cardArray.length - cardsPerView &&
+                "cursor-not-allowed"
+            )}
+            onClick={handleNext}
+            disabled={activeIndex >= cardArray.length - cardsPerView}
+          >
+            <div className="p-3">
+              <ChevronRight className="w-6 h-6" />
+            </div>
+          </button>
         </div>
-      </button>
+      )}
     </div>
   );
 };

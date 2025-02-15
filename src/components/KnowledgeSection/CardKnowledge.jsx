@@ -3,11 +3,7 @@ import React from "react";
 export default function CardKnowledge({ img, header, content }) {
   return (
     <div className="text-start cursor-pointer">
-      <img
-        src={img}
-        alt={header}
-        className="  h-[310px] w-[440px] mx-auto "
-      />
+      <img src={img} alt={header} className="  h-[310px] w-[440px] mx-auto " />
       <div className="p-2">
         <h1 className="text-base   font-semibold p-1 hover:text-brandSecondary">
           {header}
