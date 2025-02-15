@@ -11,12 +11,6 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import LogoWrapper from "./components/LogoWrapper";
 
 function App() {
-  const cardData = {
-    img: "https://picsum.photos/200", // Đường dẫn ảnh demo
-    header: "Tiêu đề Demo", // Tiêu đề
-    content:
-      "Nội dung ngắn gọn ở đây Nội dung ngắn gọn ở đây Nội dung ngắn gọn ở đâyNội dung ngắn gọn ở đây", // Nội dung
-  };
   return (
     <Router>
       <Banner />
