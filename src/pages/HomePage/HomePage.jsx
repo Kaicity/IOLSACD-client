@@ -3,9 +3,9 @@ import BlogCard from "../../components/BlogCard";
 import { useNavigate } from "react-router-dom";
 import CarouselBanner from "../../components/CarouselBanner";
 import { Banner, Blogcard_1 } from "../../assets";
-import ContentSection from "../../components/contentSection/ContentSection";
-import Carousel from "../../components/serviceComponents/Caurousel";
+import ContentSection from "../../components/ContentSection";
 import ILCKnowledgeSection from "../../components/KnowledgeSection/ILCKnowledgeSection";
+import SliderCardsItem from "../../components/SliderCardsItem";
 
 function HomePage() {
   const nagivate = useNavigate();
@@ -59,7 +59,7 @@ function HomePage() {
         }
       />
 
-      <SliderCardsItem isCard={true} />
+      <SliderCardsItem isCard={true} isPrevNextBtn={true} />
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
         <img
@@ -68,16 +68,30 @@ function HomePage() {
           className="w-full h-auto max-h-[500px] object-cover rounded-md"
         />
       </div>
-      <ILCKnowledgeSection/>
 
       <ContentSection
-        header={"KHÁM PHÁ CÔNG NGHỆ"}
+        header={"NHÀ PHÁT TRIỂN CỦA CHÚNG TÔI"}
         content={
           "Tính đến năm 2025 công nghệ trí tuệ nhân tạo AI phát triển mạnh mẽ"
         }
       />
 
-      <SliderCardsItem isCardAvatar={true} />
+      <SliderCardsItem isCardAvatar={true} isPrevNextBtn={true} />
+
+      <div className="py-4 invisible">=========SPACING============</div>
+
+      <ContentSection
+        header={"KIẾN THỨC VỀ LUẬT"}
+        content={"Cùng cộng đồng phát triển"}
+      />
+
+      <ILCKnowledgeSection />
+
+      <div className="py-4 invisible">=========SPACING============</div>
+
+      <ContentSection header={"VIDEO CLIP"} content={""} />
+
+      <SliderCardsItem isCardVideo={true} isPrevNextBtn={false} />
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16"></div>
     </div>

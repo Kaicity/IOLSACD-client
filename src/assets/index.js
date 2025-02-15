@@ -20,6 +20,8 @@ import User_2 from "./avatar/user_2.jpg";
 import User_3 from "./avatar/user_3.jpg";
 import User_4 from "./avatar/user_4.jpg";
 import User_5 from "./avatar/user_5.jpg";
+//
+import IconVideo from "./icon-video.png";
 
 export {
   PartnerShip,
@@ -37,4 +39,5 @@ export {
   User_3,
   User_4,
   User_5,
+  IconVideo,
 };
