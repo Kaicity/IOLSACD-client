@@ -2,10 +2,17 @@ import React from "react";
 
 export default function CardKnowledge({ img, header, content }) {
   return (
-    <div className="text-start cursor-pointer">
-      <img src={img} alt={header} className="  h-[310px] w-[440px] mx-auto " />
+    <div className="group text-start cursor-pointer">
+      {/* Container ảnh với overflow-hidden */}
+      <div className="overflow-hidden">
+        <img
+          src={img}
+          alt={header}
+          className="h-[310px] w-full mx-auto transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+        />
+      </div>
       <div className="p-2">
-        <h1 className="text-base   font-semibold p-1 hover:text-brandSecondary">
+        <h1 className="text-base font-semibold p-1 hover:text-brandSecondary">
           {header}
         </h1>
         <p className="text-[14px] p-1 line-clamp-3">{content}</p>

@@ -59,7 +59,7 @@ const Header = () => {
             TRANG CHỦ
           </a>
           <div className="group relative">
-            <a href="/list" className="hover:text-gray-600 text-md font-medium">
+            <a href="/about" className="hover:text-gray-600 text-md font-medium">
               TỔNG QUAN
             </a>
             {/* Dropdown Content */}
