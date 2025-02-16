@@ -15,8 +15,9 @@ function App() {
   return (
     <Router>
       <Banner />
-      <Header />
       <LogoWrapper />
+      <Header />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blog" element={<></>} />
