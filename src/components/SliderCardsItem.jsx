@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Card from "./Card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { User_1, User_2, User_3, User_4, User_6, pvt } from "../assets";
@@ -186,12 +186,48 @@ const SliderCardsItem = ({
       setActiveIndex(activeIndex + 1);
     }
   };
+  const [dragStartX, setDragStartX] = useState(null);
+  const [dragDelta, setDragDelta] = useState(0);
+  const containerRef = useRef(null);
+
+  const handleMouseDown = (e) => {
+    setDragStartX(e.clientX);
+  };
+
+  const handleMouseMove = (e) => {
+    if (dragStartX !== null) {
+      setDragDelta(e.clientX - dragStartX);
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (dragDelta > 50) {
+      // Kéo sang phải (quay về slider trước)
+      setActiveIndex((prev) => Math.max(prev - 1, 0));
+    } else if (dragDelta < -50) {
+      // Kéo sang trái (tiến tới slider sau)
+      setActiveIndex((prev) =>
+        Math.min(prev + 1, cardArray.length - cardsPerView)
+      );
+    }
+    setDragStartX(null);
+    setDragDelta(0);
+  };
+
 
   return (
     <div className="max-w-7xl mx-auto w-11/12 relative overflow-hidden py-10">
       {isCard && (
+          <div
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp} 
+          className="overflow-hidden"
+        >
         <div
-          className="flex transition-transform duration-500 ease-in-out"
+          className="flex transition-transform duration-500 ease-in-out select-none"
           style={{
             transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
           }}
@@ -199,18 +235,28 @@ const SliderCardsItem = ({
           {cardArray.map((card, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-2"
+              className="flex-shrink-0 px-4"
               style={{ width: `${100 / cardsPerView}%` }}
             >
               <Card {...card} />
             </div>
           ))}
         </div>
+        </div>
+
       )}
 
       {isCardAvatar && (
         <div
-          className="flex transition-transform duration-500 ease-in-out"
+        ref={containerRef}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp} 
+        className="overflow-hidden"
+      >
+        <div
+          className="flex transition-transform duration-500 ease-in-out select-none"
           style={{
             transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
           }}
@@ -225,6 +271,8 @@ const SliderCardsItem = ({
             </div>
           ))}
         </div>
+        </div>
+
       )}
 
       {isCardVideo && (

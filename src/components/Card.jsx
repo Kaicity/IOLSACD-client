@@ -6,7 +6,7 @@ export default function Card({ img, header, content }) {
       <img
         src={img}
         alt={header}
-        className=" p-2 h-[220px] w-full mx-auto rounded-3xl"
+        className=" p-2 h-[220px] w-full mx-auto rounded-3xl hover:scale-90 duration-300 "
       />
       <div className="p-2">
         <h1 className="text-base font-semibold p-1 hover:text-brandSecondary">
