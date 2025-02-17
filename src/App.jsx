@@ -16,6 +16,7 @@ function App() {
       <Banner />
       <LogoWrapper />
       <Header />
+
       <Routes>
         {navLinks.map((link) => (
           <Route
