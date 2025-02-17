@@ -39,7 +39,7 @@ const BreadcrumbDynamic = () => {
             <li key={routeTo} className="flex items-center">
               <ChevronRightIcon className="w-4 h-4 text-black mx-2" />
               {isLast ? (
-                <span className="text-black">{label}</span>
+                <span className="text-brandSecondary font-medium">{label}</span>
               ) : (
                 <Link to={routeTo} className="text-black hover:underline">
                   {label}
