@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { Logo } from "../assets";
+import { useNavigate, Link } from "react-router-dom";
 import clsx from "clsx";
 import { Menu, Search } from "lucide-react";
+import navLinks from "../constants/navLinks";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,16 +27,6 @@ const Header = () => {
     };
   }, []);
 
-  //NavItem array cac muc route page
-  const navItems = [
-    { a: "Trang chủ", path: "home" },
-    { a: "Cộng đồng", path: "community" },
-    { a: "Đánh giá", path: "rating" },
-    { a: "Sản phẩm", path: "/products" },
-    { a: "Giới thiệu", path: "sale" },
-    { a: "Bài viết", path: "blog" },
-  ];
-
   return (
     <div className="h-16 px-4 md:px-8 lg:px-6 xl:px-32 2xl:px-32 sticky top-0 bg-white z-40 shadow-lg">
       {/* MOBILE MENU */}
@@ -54,139 +44,40 @@ const Header = () => {
         )}
       >
         <ul className="flex items-center gap-12">
-          <li>
-            <a
-              className="text-md font-medium transition hover:text-gray-600"
-              href="/"
+          {navLinks.map((link) => (
+            <li
+              key={link.id}
+              className={clsx(link.children ? "relative group" : "")}
             >
-              TRANG CHỦ
-            </a>
-          </li>
+              <Link
+                to={link.path}
+                className="text-md font-medium transition hover:text-gray-600"
+              >
+                {link.label.toUpperCase()}
+              </Link>
 
-          {/* Tổng quan */}
-          <li className="relative group">
-            <a
-              href="/tong-quan"
-              className="text-md font-medium transition hover:text-gray-600"
-            >
-              TỔNG QUAN
-            </a>
-            <ul
-              className="absolute left-0 top-11 w-64 bg-white shadow-lg opacity-0 invisible translate-y-3 
+              {/* Nếu có submenu */}
+              {link.children && (
+                <ul
+                  className="absolute left-0 top-11 w-80 bg-white shadow-lg opacity-0 invisible translate-y-3 
                    group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
                    transition-all duration-300 ease-in-out delay-150"
-            >
-              <li>
-                <a
-                  href="/doi-ngu-nhan-su"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
                 >
-                  Đội Ngũ Nhân Sự
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/catalogue-online"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Giới thiệu
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/linh-vuc-hoat-dong"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Lĩnh vực hoạt động
-                </a>
-              </li>
-            </ul>
-          </li>
+                  {link.children.map((child) => (
+                    <li key={child.id}>
+                      <Link
+                        to={child.path}
+                        className="block px-4 py-2 hover:bg-brandSecondary hover:text-white text-sm text-neutralGrey font-semibold"
+                      >
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
 
-          {/* Dịch vụ */}
-          <li className="relative group">
-            <a
-              href="/dich-vu"
-              className="text-md font-medium transition hover:text-gray-600"
-            >
-              DỊCH VỤ
-            </a>
-            <ul
-              className="absolute left-0 top-11 w-64 bg-white shadow-lg opacity-0 invisible translate-y-3 
-                   group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
-                   transition-all duration-300 ease-in-out delay-150"
-            >
-              <li>
-                <a
-                  href="/dich-vu-cho-thue-phong-phap-che-ben-ngoai"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Cho Thuê Phòng Pháp Chế Bên Ngoài
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/dich-vu-dai-dien-to-tung"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Dịch vụ Đại Diện Tố Tụng
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/dich-vu-dai-dien-ngoai-to-tung"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Dịch vụ Đại Diện Ngoài Tố Tụng
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/dich-vu-luat-su-gia-dinh"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Dịch vụ Luật Sư Gia Đình
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/dich-vu-tu-van-xay-dung-he-thong-quan-tri-noi-bo-cong-ty"
-                  className="block px-4 py-2 hover:bg-brandPrimary hover:text-white"
-                >
-                  Tư Vấn Xây Dựng Hệ Thống Quản Trị Nội Bộ Công Ty
-                </a>
-              </li>
-            </ul>
-          </li>
-
-          <li>
-            <a
-              className="text-md font-medium transition hover:text-gray-600"
-              href="/tin-tuc"
-            >
-              TIN TỨC
-            </a>
-          </li>
-
-          <li>
-            <a
-              className="text-md font-medium transition hover:text-gray-600"
-              href="/kien-thuc-ve-luat"
-            >
-              KIẾN THỨC VỀ LUẬT
-            </a>
-          </li>
-
-          <li>
-            <a
-              className="text-md font-medium transition hover:text-gray-600"
-              href="/lien-he"
-            >
-              LIÊN HỆ
-            </a>
-          </li>
-
-          {/* Tổng quan */}
           <li className="relative group">
             <a onClick={() => setSearchOpen(!searchOpen)}>
               <Search

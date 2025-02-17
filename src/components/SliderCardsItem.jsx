@@ -214,65 +214,62 @@ const SliderCardsItem = ({
     setDragDelta(0);
   };
 
-
   return (
     <div className="max-w-7xl mx-auto w-5/6 relative overflow-hidden py-10">
       {isCard && (
-          <div
+        <div
           ref={containerRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp} 
+          onMouseLeave={handleMouseUp}
           className="overflow-hidden"
         >
-        <div
-          className="flex transition-transform duration-500 ease-in-out select-none"
-          style={{
-            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
-          }}
-        >
-          {cardArray.map((card, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 px-4"
-              style={{ width: `${100 / cardsPerView}%` }}
-            >
-              <Card {...card} />
-            </div>
-          ))}
+          <div
+            className="flex transition-transform duration-500 ease-in-out select-none"
+            style={{
+              transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+            }}
+          >
+            {cardArray.map((card, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 px-4"
+                style={{ width: `${100 / cardsPerView}%` }}
+              >
+                <Card {...card} />
+              </div>
+            ))}
+          </div>
         </div>
-        </div>
-
       )}
 
       {isCardAvatar && (
         <div
-        ref={containerRef}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp} 
-        className="overflow-hidden"
-      >
-        <div
-          className="flex transition-transform duration-500 ease-in-out select-none"
-          style={{
-            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
-          }}
+          ref={containerRef}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          className="overflow-hidden"
         >
-          {userAvatarsArray.map((card, index) => (
-            <div
-              key={index}
-              className="flex-shrink-0 px-2"
-              style={{ width: `${100 / cardsPerView}%` }}
-            >
-              <CardAvatar {...card} />
-            </div>
-          ))}
+          <div
+            className="flex transition-transform duration-500 ease-in-out select-none"
+            style={{
+              transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+            }}
+          >
+            {userAvatarsArray.map((card, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 px-2"
+                style={{ width: `${100 / cardsPerView}%` }}
+              >
+                <CardAvatar {...card} />
+              </div>
+            ))}
+          </div>
         </div>
-        </div>
-
       )}
 
       {isCardVideo && (
@@ -317,10 +314,7 @@ const SliderCardsItem = ({
         <div>
           {/* Nút điều hướng Prev */}
           <button
-            className={clsx(
-              "absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
-              activeIndex === 0 && "cursor-not-allowed"
-            )}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
             onClick={handlePrev}
             disabled={activeIndex === 0}
           >
@@ -330,11 +324,7 @@ const SliderCardsItem = ({
           </button>
           {/* Nút điều hướng Next */}
           <button
-            className={clsx(
-              "absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey",
-              activeIndex === cardArray.length - cardsPerView &&
-                "cursor-not-allowed"
-            )}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
             onClick={handleNext}
             disabled={activeIndex >= cardArray.length - cardsPerView}
           >
