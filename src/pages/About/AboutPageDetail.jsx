@@ -44,7 +44,7 @@ export default function AboutPage() {
 
         <div className="w-3/4 mx-auto p-4 z-50 text-black">
         <ContentSection header={'Tin Tức'}/>.
-        <div className="grid grid-cols-3 gap-5 bg-white">
+        <div className="grid grid-rows-4 gap-5 bg-white">
           {cardData.map((item, index) => (
             <CardKnowledge key={index} {...item} />
           ))}
