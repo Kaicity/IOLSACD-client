@@ -30,24 +30,20 @@ export default function AboutPage() {
       header: "Tiêu đề Card 4",
       content: "Nội dung cho card thứ 4.",
     },
-    {
-      img: "https://picsum.photos/200?random=5",
-      header: "Tiêu đề Card 5",
-      content: "Nội dung cho card thứ 5.",
-    },
+
   ];
 
   return (
     <div className="bg-white w-full">
       <div className="bg-gray-200 w-full">
-        <div className="w-5/6 mx-auto p-4 z-50 text-black">
+        <div className="w-3/4 mx-auto p-4 z-50 text-black">
           <BreadcrumbDynamic />
         </div>
       </div>
 
       {/* Nội dung Route cha */}
       {isRootPath && (
-        <div className="w-3/4 mx-auto px-2 py-10 z-50 text-black">
+        <div className="w-3/4 mx-auto px-4 py-10 z-50 text-black">
           <ContentSection header={"TIN TỨC"} />.
           <div className="grid grid-cols-3 gap-5 bg-white">
             {cardData.map((item, index) => (

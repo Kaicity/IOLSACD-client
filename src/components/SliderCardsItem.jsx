@@ -215,7 +215,7 @@ const SliderCardsItem = ({
   };
 
   return (
-    <div className="max-w-7xl mx-auto w-5/6 relative overflow-hidden py-10">
+    <div className="max-w-7xl mx-auto w-3/4 relative overflow-hidden py-10">
       {isCard && (
         <div
           ref={containerRef}
