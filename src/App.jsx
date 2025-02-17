@@ -20,9 +20,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/blog" element={<></>} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/about" element={<AboutPage/>} />
+        <Route path="/lien-he" element={<ContactPage />} />
+        <Route path="/gioi-thieu" element={<AboutPage />} />
 
         {/* Route cho trang lỗi */}
         <Route path="*" element={<NotFoundPage />} />

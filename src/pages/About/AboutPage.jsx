@@ -1,6 +1,6 @@
 import React from "react";
 import BreadcrumbDynamic from "../../components/Breadcrumb ";
-import {div} from "framer-motion/client";
+import { div } from "framer-motion/client";
 import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
 import ContentSection from "../../components/ContentSection";
 
@@ -36,21 +36,20 @@ export default function AboutPage() {
 
   return (
     <div className="bg-white w-full">
-    <div className="bg-gray-200 w-full">
-      <div className="w-5/6 mx-auto p-4 z-50 text-black">
-        <BreadcrumbDynamic />
+      <div className="bg-gray-200 w-full">
+        <div className="w-5/6 mx-auto p-4 z-50 text-black">
+          <BreadcrumbDynamic />
         </div>
-        </div>
+      </div>
 
-        <div className="w-3/4 mx-auto p-4 z-50 text-black">
-        <ContentSection header={'Tin Tức'}/>.
+      <div className="w-3/4 mx-auto p-4 z-50 text-black">
+        <ContentSection header={"Tin Tức"} />.
         <div className="grid grid-cols-3 gap-5 bg-white">
           {cardData.map((item, index) => (
             <CardKnowledge key={index} {...item} />
           ))}
         </div>
-        </div>
-
+      </div>
     </div>
   );
 }
