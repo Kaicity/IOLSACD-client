@@ -1,10 +1,13 @@
 import React from "react";
 import BreadcrumbDynamic from "../../components/Breadcrumb ";
-import {div} from "framer-motion/client";
 import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
 import ContentSection from "../../components/ContentSection";
+import { Outlet, useLocation } from "react-router-dom";
 
 export default function AboutPage() {
+  const location = useLocation();
+  const isRootPath = location.pathname === "/tong-quan";
+
   const cardData = [
     {
       img: "https://picsum.photos/200?random=1",
@@ -40,17 +43,23 @@ export default function AboutPage() {
       <div className="w-3/4 mx-auto p-4 z-50 text-black">
         <BreadcrumbDynamic />
         </div>
-        </div>
 
-        <div className="w-3/4 mx-auto p-4 z-50 text-black">
-        <ContentSection header={'Tin Tức'}/>.
-        <div className="grid grid-cols-3 gap-5 bg-white">
-          {cardData.map((item, index) => (
-            <CardKnowledge key={index} {...item} />
-          ))}
-        </div>
-        </div>
+      </div>
 
+      {/* Nội dung Route cha */}
+      {isRootPath && (
+        <div className="w-3/4 mx-auto px-2 py-10 z-50 text-black">
+          <ContentSection header={"TIN TỨC"} />.
+          <div className="grid grid-cols-3 gap-5 bg-white">
+            {cardData.map((item, index) => (
+              <CardKnowledge key={index} {...item} />
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Nội dung cho Route con */}
+      <Outlet />
     </div>
   );
 }
