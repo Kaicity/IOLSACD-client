@@ -6,7 +6,7 @@ export default function CardAvatar({ img, name, title }) {
       <img
         src={img}
         alt={name}
-        className="p-2 w-[330px] h-[330px] mx-auto rounded-full object-cover transition-transform duration-300 hover:scale-90"
+        className="md:p-2 w-[350px]  h-[350px] md:w-[330px] md:h-[330px]  mx-auto rounded-full object-cover transition-transform duration-300 hover:scale-90"
       />
       <div className="p-2">
         <h1 className="text-xl font-bold p-1 text-brandSecondary">{name}</h1>

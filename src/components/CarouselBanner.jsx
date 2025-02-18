@@ -32,7 +32,7 @@ const CarouselBanner = () => {
   }, []);
 
   return (
-    <div className="h-[calc(100vh-80px)] overflow-hidden relative shadow-lg">
+    <div className="md:h-[calc(100vh-80px)] overflow-hidden relative shadow-lg">
       <div
         className="w-max h-full flex transition-all ease-in-out duration-1000"
         style={{ transform: `translateX(-${current * 100}vw)` }}
@@ -43,7 +43,7 @@ const CarouselBanner = () => {
             key={slide.id}
           >
             {/* TEXT CONTAINER */}
-            <div className="h-1/2 xl:w-1/3 xl:h-full flex flex-col items-center justify-center gap-8 text-center px-4">
+            <div className="h-1/2 xl:w-1/3 xl:h-full hidden md:flex flex-col items-center justify-center gap-8 text-center px-4">
               <h2 className="text-lg  md:text-2xl lg:text-3xl font-light">
                 {slide.description}
               </h2>
