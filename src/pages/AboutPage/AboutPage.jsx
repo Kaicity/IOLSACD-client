@@ -40,7 +40,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white w-full">
       <div className="bg-gray-200 w-full">
-        <div className="w-5/6 mx-auto p-4 z-50 text-black">
+        <div className="w-3/4 mx-auto p-4 z-50 text-black">
           <BreadcrumbDynamic />
         </div>
       </div>

@@ -4,9 +4,9 @@ import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
 import ContentSection from "../../components/ContentSection";
 import { Outlet, useLocation } from "react-router-dom";
 
-export default function AboutPage() {
+export default function ServicePage() {
   const location = useLocation();
-  const isRootPath = location.pathname === "/tong-quan";
+  const isRootPath = location.pathname === "/dich-vu";
 
   const cardData = [
     {
@@ -30,6 +30,16 @@ export default function AboutPage() {
       header: "Tiêu đề Card 4",
       content: "Nội dung cho card thứ 4.",
     },
+    {
+        img: "https://picsum.photos/200?random=4",
+        header: "Tiêu đề Card 5",
+        content: "Nội dung cho card thứ 4.",
+      },
+      {
+        img: "https://picsum.photos/200?random=4",
+        header: "Tiêu đề Card 5",
+        content: "Nội dung cho card thứ 4.",
+      },
 
   ];
 

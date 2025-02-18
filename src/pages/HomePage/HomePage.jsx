@@ -123,7 +123,7 @@ function HomePage() {
       {/* <Community /> */}
 
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
-        <div className="flex items-center gap-4 px-16">
+        <div className="grid md:grid-cols-4 sm:grid-cols-1  xl:grid-cols-7 gap-4 px-16">
           {servicesArray.map((service, index) => (
             <div className="cursor-pointer">
               <img
