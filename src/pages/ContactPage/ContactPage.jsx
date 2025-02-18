@@ -53,12 +53,10 @@ function ContactPage() {
   return (
     <div>
       <div className="bg-gray-200 w-full">
-        <div className="w-5/6 mx-auto p-4 z-50 text-black">
           <BreadcrumbDynamic />
-        </div>
       </div>
 
-      <div className="px-2 py-10 lg:px-14 lg:py-10 mb-12">
+      <div className="py-10 w-3/4 mx-auto  lg:py-10 mb-12">
         <ContentSection header="LIÊN HỆ" />
         <div className="flex items-center justify-center">
           <div className="container mx-auto p-5 grid lg:grid-cols-1 xl:grid-cols-2 gap-10">

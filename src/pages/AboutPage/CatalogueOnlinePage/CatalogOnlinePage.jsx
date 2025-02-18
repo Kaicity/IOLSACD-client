@@ -46,8 +46,8 @@ export default function CatalogueOnlinePage() {
   ];
 
   return (
-    <div className="w-3/4 mx-auto grid md:grid-cols-[2fr_1fr] gap-2 relative">
-      <div className="border-r border-black p-4 space-y-4">
+    <div className="md:w-3/4 w-full mx-auto grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-2 relative">
+      <div className="md:border-r md:border-gray-400 p-4 space-y-4">
         <h1 className="font-semibold text-xl py-2">CatalogueOnlinePage</h1>
 
         <div className="space-y-6">
@@ -75,9 +75,9 @@ export default function CatalogueOnlinePage() {
           </div>
         </div>
       </div>
-      <div className=" relative py-2">
+      <div className="md:block hidden py-2">
         <div className="sticky top-20 bottom-20 right-10 w-full">
-          <h1 className="font-semibold text-xl py-2 text-red-600">
+          <h1 className=" font-semibold text-xl py-2 text-red-600">
             Dịch vụ khác
           </h1>
           <div className="grid grid-rows-3 w-full gap-4">

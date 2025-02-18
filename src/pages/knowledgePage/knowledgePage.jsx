@@ -5,9 +5,9 @@ import ContentSection from "../../components/ContentSection";
 import { Outlet, useLocation } from "react-router-dom";
 import LayoutPage from "../../components/LayoutPage";
 
-export default function AboutPage() {
+export default function KnowledgePage() {
   const location = useLocation();
-  const isRootPath = location.pathname === "/tong-quan";
+  const isRootPath = location.pathname === "/kien-thuc-ve-luat";
 
   const cardData = [
     {
@@ -31,18 +31,26 @@ export default function AboutPage() {
       header: "Tiêu đề Card 4",
       content: "Nội dung cho card thứ 4.",
     },
+    {
+        img: "https://picsum.photos/200?random=4",
+        header: "Tiêu đề Card 5",
+        content: "Nội dung cho card thứ 4.",
+      },
+      {
+        img: "https://picsum.photos/200?random=4",
+        header: "Tiêu đề Card 5",
+        content: "Nội dung cho card thứ 4.",
+      },
 
   ];
 
   return (
     <div className="bg-white w-full">
-
+     
           <BreadcrumbDynamic />
-
-
       {/* Nội dung Route cha */}
       {isRootPath && (
-               <LayoutPage header={'Tổng Quan'} cardData={cardData}/>
+               <LayoutPage header={'Kiến Thức Về Luật'} cardData={cardData}/>
        
       )}
 

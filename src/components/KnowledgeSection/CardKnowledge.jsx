@@ -8,7 +8,7 @@ export default function CardKnowledge({ img, header, content }) {
         <img
           src={img}
           alt={header}
-          className="h-[310px] w-full mx-auto transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+          className="md:h-[310px] h-[270px] w-full mx-auto transform transition-transform duration-300 ease-in-out group-hover:scale-110"
         />
       </div>
       <div className="p-2">

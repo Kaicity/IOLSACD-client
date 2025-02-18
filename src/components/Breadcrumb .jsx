@@ -23,6 +23,8 @@ const BreadcrumbDynamic = () => {
   const pathnames = pathname.split("/").filter((x) => x);
 
   return (
+    <div className="bg-gray-200 w-full">
+        <div className="w-3/4 mx-auto p-4 z-50 text-black">
     <nav className="text-black text-sm" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-2">
         <li>
@@ -50,6 +52,9 @@ const BreadcrumbDynamic = () => {
         })}
       </ol>
     </nav>
+    </div>
+    </div>
+
   );
 };
 
