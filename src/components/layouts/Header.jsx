@@ -32,7 +32,7 @@ const Header = () => {
     <setion>
       <div className="h-16 xl:px-32 2xl:px-32 sticky top-0 bg-white z-40 shadow-lg">
         {/* MOBILE MENU */}
-        <div className="h-full flex items-center xl:hidden bg-brandPrimary w-full px-2">
+        <div className="h-full flex items-center xl:hidden bg-brandPrimary w-full px-2 shadow-lg">
           <button className="mr-2" onClick={() => setIsOpen(true)}>
             <Menu className="object-contain w-12 h-12 text-white" />
           </button>

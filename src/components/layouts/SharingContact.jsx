@@ -78,7 +78,7 @@ function SharingContact() {
               <div className="relative">
                 <span className="absolute inset-0 w-full h-full rounded-full border-4 border-brandPrimary animate-pulse-border"></span>
                 <img
-                  src="https://themayanagari.com/wp-content/uploads/2020/09/Facebook-Logo-Png-Image-Free-Download.jpg"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
                   alt="Chat với chúng tôi qua Facebook"
                   className="w-14 h-14 rounded-full shadow-md transition-transform group-hover:scale-110"
                 />
