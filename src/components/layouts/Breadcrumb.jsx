@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "lucide-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import navLinks from "../constants/navLinks";
+import navLinks from "../../constants/navLinks.js";
 
 // Hàm tìm label dựa vào path
 const findLabelByPath = (path) => {
@@ -26,7 +26,7 @@ const BreadcrumbDynamic = () => {
     <nav className="text-black text-sm" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-2">
         <li>
-          <Link to="/" className="text-black hover:underline">
+          <Link to="/public" className="text-black hover:underline">
             Trang Chủ
           </Link>
         </li>
