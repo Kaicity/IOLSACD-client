@@ -1,5 +1,5 @@
 import { Mail, Phone } from "lucide-react";
-import { VietnamFlag, UKFlag, ChinaFlag } from "../assets/index";
+import { VietnamFlag, UKFlag, ChinaFlag } from "../../assets/index.js";
 
 import React from "react";
 

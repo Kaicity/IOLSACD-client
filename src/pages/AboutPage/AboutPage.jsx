@@ -1,8 +1,8 @@
 import React from "react";
-import BreadcrumbDynamic from "../../components/Breadcrumb ";
 import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
 import ContentSection from "../../components/ContentSection";
 import { Outlet, useLocation } from "react-router-dom";
+import BreadcrumbDynamic from "../../components/layouts/Breadcrumb";
 
 export default function AboutPage() {
   const location = useLocation();

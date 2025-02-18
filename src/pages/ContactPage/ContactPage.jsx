@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import ContentSection from "../../components/ContentSection";
-import BreadcrumbDynamic from "../../components/Breadcrumb ";
+import BreadcrumbDynamic from "../../components/layouts/Breadcrumb.jsx";
 import { Link } from "lucide-react";
 
 function ContactPage() {

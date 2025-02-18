@@ -4,6 +4,8 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import CatalogueOnlinePage from "./pages/AboutPage/CatalogueOnlinePage/CatalogOnlinePage";
+<<<<<<< HEAD
+=======
 import IntroductionPage from "./pages/AboutPage/Introduction/IntroductionPage";
 import IndustryPage from "./pages/AboutPage/Industry/IndustryPage";
 import ServicePage from "./pages/ServicePage/ServicePage";
@@ -12,6 +14,7 @@ import LitigationPage from "./pages/ServicePage/Litigation/LitigationPage";
 import OutLitigationPage from "./pages/ServicePage/OutLitigation/OutLitigation";
 import FamilyLawyerPage from "./pages/ServicePage/FamilyLawyer/FamilyLawyerPage";
 import ConsultingPage from "./pages/ServicePage/Consulting/ConsultingPage";
+>>>>>>> 96ee0f1dfd7dc0d613de53439427990d072786fa
 
 export default function getPageComponent(path) {
   console.log(path);
