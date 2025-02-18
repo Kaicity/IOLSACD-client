@@ -2,27 +2,28 @@ import React from "react";
 import StatisticItem from "./StatisticsItem";
 import { motion } from "framer-motion";
 import { fadeInFramer, slideInLeft } from "../helper/fadeInFramer.js";
+import { Persons } from "../assets/index.js";
 
 const statisticsData = [
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/fa8c7e7ac6d05a684c8c89629c9774fa24658d7b3a4df86fac4f48921d52766a?placeholderIfAbsent=true&apiKey=569ca0f11d24437e944df7e3364ce2c4",
+    icon: Persons,
     value: 2000,
-    label: "Máy xúc đã bán",
+    label: "Chưa có nội dung",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/4b081c75d377203c89d017354ec51d8df2227b7ded6a709df5dd7a2c36bc88b7?placeholderIfAbsent=true&apiKey=569ca0f11d24437e944df7e3364ce2c4",
+    icon: Persons,
     value: 500,
-    label: "Dự án hoàn thành",
+    label: "Chưa có nội dung",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/1b4ed6f6101ec71213f980ad4aa121f8c3d3097e5ae83780579749854a2b13c1?placeholderIfAbsent=true&apiKey=569ca0f11d24437e944df7e3364ce2c4",
+    icon: Persons,
     value: 1950000,
-    label: "Giờ vận hành",
+    label: "Chưa có nội dung",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/722fbd87c1b2ca1f1b9dfcadf5d5e4bcfb0265069581864252df444bb8a7f7d8?placeholderIfAbsent=true&apiKey=569ca0f11d24437e944df7e3364ce2c4",
+    icon: Persons,
     value: 5000000,
-    label: "Khách hàng hài lòng",
+    label: "Chưa có nội dung",
   },
 ];
 
@@ -39,13 +40,13 @@ function StatisticsSection() {
         whileInView="show"
         viewport={{ once: true, amount: 0.5 }}
       >
-        <h2 className="overflow-hidden max-w-full text-4xl font-semibold leading-10 text-brandPrimary w-[408px]">
-          Mang đến sự{" "}
-          <span className="text-brandPrimary">đổi mới cho ngành xây dựng</span>
+        <h2 className="overflow-hidden max-w-full text-4xl font-semibold leading-10 text-neutralDGrey w-[408px]">
+          Tiêu đề{" "}
+          <span className="text-brandSecondary">Chưa có nội dung ở đây</span>
         </h2>
         <p className="mt-2 text-base text-zinc-900 max-md:max-w-full">
-          Chúng tôi đạt được thành công nhờ nỗ lực và cam kết cung cấp các sản
-          phẩm máy xúc hiện đại và chất lượng cao.
+          Chưa có nội dung ở đây Chưa có nội dung ở đây Chưa có nội dung ở đây
+          Chưa có nội dung ở đây
         </p>
       </motion.div>
 

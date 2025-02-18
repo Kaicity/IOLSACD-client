@@ -1,14 +1,15 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import SharingContact from "./components/SharingContact";
-import Banner from "./components/Banner";
-import SubFooter from "./components/SubFooter";
-import LogoWrapper from "./components/LogoWrapper";
+import Footer from "./components/layouts/Footer.jsx";
+import Header from "./components/layouts/Header.jsx";
+import SharingContact from "./components/layouts/SharingContact.jsx";
+import Banner from "./components/layouts/Banner.jsx";
+import SubFooter from "./components/layouts/SubFooter.jsx";
+import LogoWrapper from "./components/layouts/LogoWrapper";
 import navLinks from "./constants/navLinks";
 import getPageComponent from "./renderPages";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import LoadingScreenSlash from "./components/layouts/LoadingScreenSlash.jsx";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <Banner />
       <LogoWrapper />
       <Header />
-
+      <LoadingScreenSlash />
       <Routes>
         {navLinks.map((link) => (
           <Route

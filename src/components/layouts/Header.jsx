@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import clsx from "clsx";
 import { ChevronDown, ChevronRight, Menu, Search, X } from "lucide-react";
-import navLinks from "../constants/navLinks";
-import { Logo } from "../assets";
+import navLinks from "../../constants/navLinks.js";
+import { Logo } from "../../assets/index.js";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -136,7 +136,7 @@ const Header = () => {
         )}
       >
         <div className="p-4">
-          <a href="/" className="mx-auto">
+          <a href="/public" className="mx-auto">
             <img
               src={Logo}
               alt="CÔNG TY LUẬT BẾN THÀNH LAW"

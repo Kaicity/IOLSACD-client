@@ -1,10 +1,11 @@
 import BlogCard from "../../components/BlogCard";
 import { useNavigate } from "react-router-dom";
-import CarouselBanner from "../../components/CarouselBanner";
+import CarouselBanner from "../../components/layouts/CarouselBanner";
 import { Banner, Blogcard_1 } from "../../assets";
 import ContentSection from "../../components/ContentSection";
 import ILCKnowledgeSection from "../../components/KnowledgeSection/ILCKnowledgeSection";
 import SliderCardsItem from "../../components/SliderCardsItem";
+import StatisticsSection from "../../components/StatisticsSection";
 
 const servicesArray = [
   {
@@ -135,6 +136,8 @@ function HomePage() {
           ))}
         </div>
       </div>
+
+      <StatisticsSection />
     </div>
   );
 }

@@ -23,8 +23,13 @@ import User_4 from "./avatar/user_4.jpg";
 import User_5 from "./avatar/user_5.jpg";
 import User_6 from "./avatar/user_6.jpg";
 import pvt from "./avatar/pvt.jpg";
+//====================IMGAGE===================
+import Spinner from "./spinner/spin.gif";
+
 //
 import IconVideo from "./icon-video.png";
+//
+import Persons from "./persons.png";
 
 export {
   PartnerShip,
@@ -46,5 +51,6 @@ export {
   User_6,
   pvt,
   IconVideo,
-
+  Persons,
+  Spinner,
 };

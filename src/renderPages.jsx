@@ -1,9 +1,9 @@
-import AboutPage from "./pages/About/AboutPage";
-import TeamPage from "./pages/About/TeamPage/TeamPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import TeamPage from "./pages/AboutPage/TeamPage/TeamPage";
 import ContactPage from "./pages/ContactPage/ContactPage";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import CatalogueOnlinePage from "./pages/About/CatalogueOnlinePage/CatalogOnlinePage";
+import CatalogueOnlinePage from "./pages/AboutPage/CatalogueOnlinePage/CatalogOnlinePage";
 
 export default function getPageComponent(path) {
   console.log(path);
