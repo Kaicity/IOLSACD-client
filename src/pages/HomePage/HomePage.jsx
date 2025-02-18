@@ -120,7 +120,7 @@ function HomePage() {
 
       <ContentSection header={"ĐỐI TÁC KHÁCH HÀNG"} content={""} />
 
-      {/* <Community /> */}
+      {'hello'}
 
       <div className="px-4 w-full max-w-screen-2xl mx-auto py-16">
         <div className="grid md:grid-cols-4 grid-cols-2   xl:grid-cols-7 gap-4">
