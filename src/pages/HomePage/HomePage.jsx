@@ -9,24 +9,28 @@ import StatisticsSection from "../../components/StatisticsSection";
 
 const servicesArray = [
   {
+    id: 1,
     img: "https://picsum.photos/200?random=1",
   },
+  { id: 2, img: "https://picsum.photos/200?random=2" },
   {
-    img: "https://picsum.photos/200?random=2",
-  },
-  {
+    id: 3,
     img: "https://picsum.photos/200?random=3",
   },
   {
+    id: 4,
     img: "https://picsum.photos/200?random=4",
   },
   {
+    id: 5,
     img: "https://picsum.photos/200?random=5",
   },
   {
+    id: 6,
     img: "https://picsum.photos/200?random=6",
   },
   {
+    id: 7,
     img: "https://picsum.photos/200?random=7",
   },
 ];
@@ -126,7 +130,7 @@ function HomePage() {
       <div className="px-4 lg:px-14 max-w-screen-2xl mx-auto py-16">
         <div className="grid md:grid-cols-4 sm:grid-cols-1  xl:grid-cols-7 gap-4 px-16">
           {servicesArray.map((service, index) => (
-            <div className="cursor-pointer">
+            <div className="cursor-pointer" key={service.id}>
               <img
                 src={service.img}
                 alt={""}

@@ -1,5 +1,5 @@
 import React from "react";
-import BreadcrumbDynamic from "../../components/Breadcrumb ";
+import BreadcrumbDynamic from "../../components/layouts/Breadcrumb";
 import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
 import ContentSection from "../../components/ContentSection";
 import { Outlet, useLocation } from "react-router-dom";
@@ -31,16 +31,15 @@ export default function ServicePage() {
       content: "Nội dung cho card thứ 4.",
     },
     {
-        img: "https://picsum.photos/200?random=4",
-        header: "Tiêu đề Card 5",
-        content: "Nội dung cho card thứ 4.",
-      },
-      {
-        img: "https://picsum.photos/200?random=4",
-        header: "Tiêu đề Card 5",
-        content: "Nội dung cho card thứ 4.",
-      },
-
+      img: "https://picsum.photos/200?random=4",
+      header: "Tiêu đề Card 5",
+      content: "Nội dung cho card thứ 4.",
+    },
+    {
+      img: "https://picsum.photos/200?random=4",
+      header: "Tiêu đề Card 5",
+      content: "Nội dung cho card thứ 4.",
+    },
   ];
 
   return (

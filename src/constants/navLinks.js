@@ -17,7 +17,7 @@ const navLinks = [
         path: "/tong-quan/gioi-thieu",
       },
       {
-        id: 23,
+        id: 24,
         label: "Lĩnh Vực Hoạt động",
         path: "/tong-quan/linh-vuc-hoat-dong",
       },

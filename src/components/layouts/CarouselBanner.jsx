@@ -61,7 +61,6 @@ const CarouselBanner = () => {
               <img
                 src={slide.img}
                 alt=""
-                fill
                 sizes="100%"
                 className="object-cover"
               />

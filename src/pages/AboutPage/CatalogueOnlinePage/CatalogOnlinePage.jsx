@@ -1,13 +1,6 @@
 import React from "react";
-import BreadcrumbDynamic from "../../components/Breadcrumb ";
-import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
-import ContentSection from "../../components/ContentSection";
-import { Outlet, useLocation } from "react-router-dom";
 
 export default function AboutPage() {
-  const location = useLocation();
-  const isRootPath = location.pathname === "/tong-quan";
-
   const cardData = [
     {
       img: "https://picsum.photos/200?random=1",
@@ -30,31 +23,7 @@ export default function AboutPage() {
       header: "Tiêu đề Card 4",
       content: "Nội dung cho card thứ 4.",
     },
-
   ];
 
-  return (
-    <div className="bg-white w-full">
-      <div className="bg-gray-200 w-full">
-        <div className="w-3/4 mx-auto p-4 z-50 text-black">
-          <BreadcrumbDynamic />
-        </div>
-      </div>
-
-      {/* Nội dung Route cha */}
-      {isRootPath && (
-        <div className="w-3/4 mx-auto px-4 py-10 z-50 text-black">
-          <ContentSection header={"TIN TỨC"} />.
-          <div className="grid grid-cols-3 gap-5 bg-white">
-            {cardData.map((item, index) => (
-              <CardKnowledge key={index} {...item} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Nội dung cho Route con */}
-      <Outlet />
-    </div>
-  );
+  return <div className="">CHƯA CÓ NỘI DUNG TRANG</div>;
 }

@@ -90,18 +90,13 @@ const Footer = () => {
               className="w-full px-3 py-2 text-sm bg-white text-black focus:ring-2 focus:ring-blue-500"
               required
             />
-            <select
-              id="service"
+            <input
+              type="text"
+              id="date"
+              placeholder="Ngày đăng ký dịch vụ"
               className="w-full px-3 py-2 text-sm bg-white text-black focus:ring-2 focus:ring-blue-500"
               required
-            >
-              <option value="" disabled selected>
-                Chọn dịch vụ
-              </option>
-              <option value="consulting">Tư vấn</option>
-              <option value="training">Đào tạo</option>
-              <option value="support">Hỗ trợ kỹ thuật</option>
-            </select>
+            />
             <textarea
               id="content"
               placeholder="Nội dung"

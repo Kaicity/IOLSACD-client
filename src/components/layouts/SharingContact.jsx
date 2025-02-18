@@ -87,11 +87,12 @@ function SharingContact() {
           </li>
         </ul>
       </div>
+
       <div className="fixed bottom-10 right-5 z-50 flex flex-col items-center space-y-4">
         <button
           onClick={scrollToTop}
           href="#"
-          className={`flex items-center justify-center w-14 h-14 bg-brandSecondary text-white rounded-full shadow-md hover:bg-neutralDGrey focus:ring-2 transition ${
+          className={`flex items-center justify-center w-12 h-12 bg-brandSecondary text-white rounded-md shadow-md hover:bg-neutralGrey focus:ring-2 transition ${
             isVisible ? "flex" : "hidden"
           } `}
           title="Lên đầu trang"
