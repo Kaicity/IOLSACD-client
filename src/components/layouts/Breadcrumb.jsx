@@ -26,7 +26,7 @@ const BreadcrumbDynamic = () => {
     <nav className="text-black text-sm" aria-label="Breadcrumb">
       <ol className="flex items-center space-x-2">
         <li>
-          <Link to="/public" className="text-black hover:underline">
+          <Link to="/" className="text-black hover:underline">
             Trang Chủ
           </Link>
         </li>

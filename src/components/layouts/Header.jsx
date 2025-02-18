@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
 import { ChevronDown, ChevronRight, Menu, Search, X } from "lucide-react";
 import navLinks from "../../constants/navLinks.js";
@@ -13,7 +13,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
 
-  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,39 +57,50 @@ const Header = () => {
           )}
         >
           <ul className="flex items-center gap-12">
-            {navLinks.map((link) => (
-              <li
-                key={link.id}
-                className={clsx(link.children ? "relative group" : "")}
-              >
-                <Link
-                  to={link.path}
-                  className="text-md font-medium transition hover:text-gray-600"
-                >
-                  {link.label.toUpperCase()}
-                </Link>
+            {navLinks.map((link) => {
+              const isActive =
+                location.pathname === link.path ||
+                link.children?.some(
+                  (child) => location.pathname === child.path
+                );
 
-                {/* Nếu có submenu */}
-                {link.children && (
-                  <ul
-                    className="absolute left-0 top-11 w-80 bg-white shadow-lg opacity-0 invisible translate-y-3 
+              return (
+                <li
+                  key={link.id}
+                  className={clsx(link.children ? "relative group" : "")}
+                >
+                  <Link
+                    to={link.path}
+                    className={clsx(
+                      "text-md font-medium transition",
+                      isActive ? "text-brandPrimary" : "hover:text-brandPrimary"
+                    )}
+                  >
+                    {link.label.toUpperCase()}
+                  </Link>
+
+                  {/* Nếu có submenu */}
+                  {link.children && (
+                    <ul
+                      className="absolute left-0 top-11 w-80 bg-white shadow-lg opacity-0 invisible translate-y-3 
                      group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 
                      transition-all duration-300 ease-in-out delay-150"
-                  >
-                    {link.children.map((child) => (
-                      <li key={child.id}>
-                        <Link
-                          to={child.path}
-                          className="block px-4 py-2 hover:bg-brandSecondary hover:text-white text-sm text-neutralGrey font-semibold"
-                        >
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
+                    >
+                      {link.children.map((child) => (
+                        <li key={child.id}>
+                          <Link
+                            to={child.path}
+                            className="block px-4 py-2 hover:bg-brandPrimary hover:text-white text-sm text-neutralGrey font-semibold"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
 
             <li className="relative group">
               <a onClick={() => setSearchOpen(!searchOpen)}>

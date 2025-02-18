@@ -3,7 +3,7 @@ import { IconVideo } from "../assets";
 
 export default function CardVideo({ img, title, url }) {
   return (
-    <div className="text-center cursor-pointer">
+    <div className="text-center cursor-pointer w-full ">
       <div className="py-2 bg-black rounded-3xl overflow-hidden group">
         <a href={url} className="block relative">
           <img

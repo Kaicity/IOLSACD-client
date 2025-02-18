@@ -134,7 +134,7 @@ function HomePage() {
               <img
                 src={service.img}
                 alt={""}
-                className=" p-2 h-[110px] w-[200px] mx-auto"
+                className="p-2 h-[110px] w-[200px] mx-auto"
               />
             </div>
           ))}

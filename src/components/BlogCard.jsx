@@ -15,10 +15,7 @@ const BlogCard = ({
   const navigate = useNavigate();
 
   return (
-    <div
-      className="px-4 lg:px-14 max-w-screen-2xl mx-auto my-8"
-      id="blog-product"
-    >
+    <div className="px-4 lg:px-0 max-w-screen-2xl mx-auto" id="blog-product">
       <div className="md:w-11/12 lg:w-3/4 mx-auto flex flex-col md:flex-row md:justify-between items-center gap-12">
         <motion.div
           className="md:w-3/5 mx-auto"
@@ -28,7 +25,7 @@ const BlogCard = ({
           viewport={{ once: true, amount: 0.5 }}
         >
           <div className=" border-1 border-red-400 border-l-4">
-            <h2 className="text-3xl font-extrabold text-brandSecondary mx-2 mb-2">
+            <h2 className="text-2xl lg:text-3xl font-extrabold text-brandSecondary mx-2 mb-2">
               {title}
             </h2>
             <h2 className="text-base font-light px-2 text-neutralDGrey mb-4  border-b-2">
