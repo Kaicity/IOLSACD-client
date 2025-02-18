@@ -3,7 +3,7 @@ import {SiZalo} from "react-icons/si";
 import ItemKnowledge from "../../../components/KnowledgeSection/ItemKnowledge";
 import Paragraph from "../../../components/Paragraph";
 
-export default function TeamPage() {
+export default function IntroductionPage() {
   const cardData = [
     {
       img: "https://picsum.photos/200?random=1",
@@ -48,7 +48,7 @@ export default function TeamPage() {
   return (
     <div className="w-3/4 mx-auto grid md:grid-cols-[2fr_1fr] gap-2 relative">
       <div className="border-r border-black p-4 space-y-4">
-        <h1 className="font-semibold text-xl py-2">Đội Ngữ nhân sư</h1>
+        <h1 className="font-semibold text-xl py-2">Giới Thiệu</h1>
 
         <div className="space-y-6">
           {paragraphs.map((item, index) => (
