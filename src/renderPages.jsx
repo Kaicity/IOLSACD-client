@@ -4,6 +4,8 @@ import ContactPage from "./pages/ContactPage/ContactPage";
 import HomePage from "./pages/HomePage/HomePage";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import CatalogueOnlinePage from "./pages/About/CatalogueOnlinePage/CatalogOnlinePage";
+import IntroductionPage from "./pages/About/Introduction/IntroductionPage";
+import IndustryPage from "./pages/About/Industry/IndustryPage";
 
 export default function getPageComponent(path) {
   console.log(path);
@@ -15,13 +17,13 @@ export default function getPageComponent(path) {
     case "/tong-quan":
       return <AboutPage />;
     case "/tong-quan/doi-ngu-nhan-su":
-      return <TeamPage />;
+      return <TeamPage  />;
     case "/tong-quan/catalogue-online":
       return <CatalogueOnlinePage />;
     case "/tong-quan/linh-vuc-hoat-dong":
-      return <></>;
+      return <IndustryPage/>;
     case "/tong-quan/gioi-thieu":
-      return <></>;
+      return <IntroductionPage/>;
 
     case "/dich-vu":
       return <></>;
