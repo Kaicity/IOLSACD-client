@@ -13,7 +13,7 @@ import OutLitigationPage from "./pages/ServicePage/OutLitigation/OutLitigation";
 import FamilyLawyerPage from "./pages/ServicePage/FamilyLawyer/FamilyLawyerPage";
 import ConsultingPage from "./pages/ServicePage/Consulting/ConsultingPage";
 import NewsPage from "./pages/NewsPage/NewsPage";
-import KnowledgePage from "./pages/knowledgePage/knowledgePage";
+import KnowledgePage from "./pages/KnowledgePage/KnowledgePage";
 
 export default function getPageComponent(path) {
   switch (path) {
