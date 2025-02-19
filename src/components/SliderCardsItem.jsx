@@ -174,17 +174,45 @@ const SliderCardsItem = ({
   }, []);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1); // 1: tiến, -1: lùi
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => {
+        let nextIndex = prev + direction;
+
+        if (nextIndex >= cardArray.length - cardsPerView) {
+          setDirection(-1); // Đến cuối -> đổi hướng lùi
+          return prev - 1;
+        }
+        if (nextIndex <= 0) {
+          setDirection(1); // Đến đầu -> đổi hướng tiến
+          return prev + 1;
+        }
+
+        return nextIndex;
+      });
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [activeIndex, cardsPerView, direction]);
 
   const handlePrev = () => {
     if (activeIndex > 0) {
       setActiveIndex(activeIndex - 1);
     }
+    setDirection(-1);
+    setActiveIndex((prev) => Math.max(prev - 1, 0));
   };
 
   const handleNext = () => {
     if (activeIndex < cardArray.length - cardsPerView) {
       setActiveIndex(activeIndex + 1);
     }
+    setDirection(1);
+    setActiveIndex((prev) =>
+      Math.min(prev + 1, cardArray.length - cardsPerView)
+    );
   };
   const [dragStartX, setDragStartX] = useState(null);
   const [dragDelta, setDragDelta] = useState(0);
@@ -215,7 +243,7 @@ const SliderCardsItem = ({
   };
 
   return (
-    <div className="max-w-7xl mx-auto w-[95%] lg:w-3/4 relative overflow-hidden py-10">
+    <div className="max-w-7xl mx-auto w-full md:w-3/4 relative overflow-hidden py-10">
       {isCard && (
         <div
           ref={containerRef}
@@ -234,7 +262,7 @@ const SliderCardsItem = ({
             {cardArray.map((card, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 px-4"
+                className="flex-shrink-0 px-2 md:px-4"
                 style={{ width: `${100 / cardsPerView}%` }}
               >
                 <Card {...card} />
@@ -301,7 +329,7 @@ const SliderCardsItem = ({
           {servicesArray.map((card, index) => (
             <div
               key={index}
-              className="flex-shrink-0 px-2"
+              className="flex-shrink-0 md:px-2"
               style={{ width: `${100 / cardsPerView}%` }}
             >
               <CardService {...card} />
@@ -314,7 +342,7 @@ const SliderCardsItem = ({
         <div>
           {/* Nút điều hướng Prev */}
           <button
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
+            className="absolute md:left-0 left-2 z-10 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
             onClick={handlePrev}
             disabled={activeIndex === 0}
           >
@@ -324,7 +352,7 @@ const SliderCardsItem = ({
           </button>
           {/* Nút điều hướng Next */}
           <button
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
+            className="absolute md:right-0 right-2 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
             onClick={handleNext}
             disabled={activeIndex >= cardArray.length - cardsPerView}
           >

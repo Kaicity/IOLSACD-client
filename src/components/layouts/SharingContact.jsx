@@ -42,7 +42,7 @@ function SharingContact() {
                 <img
                   src="//bizweb.dktcdn.net/100/472/913/themes/888429/assets/addthis-phone.svg?1725935235961"
                   alt="Gọi ngay cho chúng tôi"
-                  className="w-14 h-14 rounded-full shadow-md transition-transform group-hover:scale-110"
+                  className="w-11 h-11 rounded-full shadow-md transition-transform group-hover:scale-110"
                 />
               </div>
             </a>
@@ -61,7 +61,7 @@ function SharingContact() {
                 <img
                   src="//bizweb.dktcdn.net/100/472/913/themes/888429/assets/addthis-zalo.svg?1725935235961"
                   alt="Chat với chúng tôi qua Zalo"
-                  className="w-14 h-14 rounded-full shadow-md transition-transform group-hover:scale-110"
+                  className="w-11 h-11 rounded-full shadow-md transition-transform group-hover:scale-110"
                 />
               </div>
             </a>
@@ -80,7 +80,7 @@ function SharingContact() {
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png"
                   alt="Chat với chúng tôi qua Facebook"
-                  className="w-14 h-14 rounded-full shadow-md transition-transform group-hover:scale-110"
+                  className="w-11 h-11 rounded-full shadow-md transition-transform group-hover:scale-110"
                 />
               </div>
             </a>
@@ -92,7 +92,7 @@ function SharingContact() {
         <button
           onClick={scrollToTop}
           href="#"
-          className={`flex items-center justify-center w-12 h-12 bg-brandSecondary text-white rounded-md shadow-md hover:bg-neutralGrey focus:ring-2 transition ${
+          className={`flex items-center justify-center w-11 h-11 bg-brandSecondary text-white rounded-md shadow-md hover:bg-neutralGrey focus:ring-2 transition ${
             isVisible ? "flex" : "hidden"
           } `}
           title="Lên đầu trang"

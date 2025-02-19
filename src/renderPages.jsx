@@ -12,6 +12,8 @@ import LitigationPage from "./pages/ServicePage/Litigation/LitigationPage";
 import OutLitigationPage from "./pages/ServicePage/OutLitigation/OutLitigation";
 import FamilyLawyerPage from "./pages/ServicePage/FamilyLawyer/FamilyLawyerPage";
 import ConsultingPage from "./pages/ServicePage/Consulting/ConsultingPage";
+import NewsPage from "./pages/NewsPage/NewsPage";
+import KnowledgePage from "./pages/knowledgePage/knowledgePage";
 
 export default function getPageComponent(path) {
   switch (path) {
@@ -43,10 +45,10 @@ export default function getPageComponent(path) {
       return <ConsultingPage />;
 
     case "/tin-tuc":
-      return <></>;
+      return <NewsPage />;
 
     case "/kien-thuc-ve-luat":
-      return <></>;
+      return <KnowledgePage />;
 
     case "/lien-he":
       return <ContactPage />;

@@ -52,11 +52,7 @@ function ContactPage() {
 
   return (
     <div>
-      <div className="bg-gray-200 w-full">
-        <div className="w-5/6 mx-auto p-4 z-50 text-black">
-          <BreadcrumbDynamic />
-        </div>
-      </div>
+      <BreadcrumbDynamic />
 
       <div className="px-2 py-10 lg:px-14 lg:py-10 mb-12">
         <ContentSection header="LIÊN HỆ" />
