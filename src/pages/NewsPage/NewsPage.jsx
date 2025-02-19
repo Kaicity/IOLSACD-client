@@ -1,13 +1,11 @@
 import React from "react";
 import BreadcrumbDynamic from "../../components/layouts/Breadcrumb";
-import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
-import ContentSection from "../../components/ContentSection";
 import { Outlet, useLocation } from "react-router-dom";
 import LayoutPage from "../../components/LayoutPage";
 
-export default function ServicePage() {
+export default function NewsPage() {
   const location = useLocation();
-  const isRootPath = location.pathname === "/dich-vu";
+  const isRootPath = location.pathname === "/tin-tuc";
 
   const cardData = [
     {
@@ -48,7 +46,7 @@ export default function ServicePage() {
       <BreadcrumbDynamic />
 
       {/* Nội dung Route cha */}
-      {isRootPath && <LayoutPage header={"Dịch Vụ"} cardData={cardData} />}
+      {isRootPath && <LayoutPage header={"Tin Tức"} cardData={cardData} />}
 
       {/* Nội dung cho Route con */}
       <Outlet />

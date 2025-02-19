@@ -1,13 +1,11 @@
 import React from "react";
 import BreadcrumbDynamic from "../../components/layouts/Breadcrumb";
-import CardKnowledge from "../../components/KnowledgeSection/CardKnowledge";
-import ContentSection from "../../components/ContentSection";
 import { Outlet, useLocation } from "react-router-dom";
 import LayoutPage from "../../components/LayoutPage";
 
-export default function ServicePage() {
+export default function KnowledgePage() {
   const location = useLocation();
-  const isRootPath = location.pathname === "/dich-vu";
+  const isRootPath = location.pathname === "/kien-thuc-ve-luat";
 
   const cardData = [
     {
@@ -46,9 +44,10 @@ export default function ServicePage() {
   return (
     <div className="bg-white w-full">
       <BreadcrumbDynamic />
-
       {/* Nội dung Route cha */}
-      {isRootPath && <LayoutPage header={"Dịch Vụ"} cardData={cardData} />}
+      {isRootPath && (
+        <LayoutPage header={"Kiến Thức Về Luật"} cardData={cardData} />
+      )}
 
       {/* Nội dung cho Route con */}
       <Outlet />

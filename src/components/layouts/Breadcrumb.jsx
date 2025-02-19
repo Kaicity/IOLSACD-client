@@ -23,33 +23,39 @@ const BreadcrumbDynamic = () => {
   const pathnames = pathname.split("/").filter((x) => x);
 
   return (
-    <nav className="text-black text-sm" aria-label="Breadcrumb">
-      <ol className="flex items-center space-x-2">
-        <li>
-          <Link to="/" className="text-black hover:underline">
-            Trang Chủ
-          </Link>
-        </li>
-        {pathnames.map((_, index) => {
-          // Tạo đường dẫn từng cấp
-          const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-          const label = findLabelByPath(routeTo);
-          const isLast = index === pathnames.length - 1;
-          return (
-            <li key={routeTo} className="flex items-center">
-              <ChevronRightIcon className="w-4 h-4 text-black mx-2" />
-              {isLast ? (
-                <span className="text-brandSecondary font-medium">{label}</span>
-              ) : (
-                <Link to={routeTo} className="text-black hover:underline">
-                  {label}
-                </Link>
-              )}
+    <div className="bg-gray-200 w-full">
+      <div className="w-3/4 mx-auto p-4 z-50 text-black">
+        <nav className="text-black text-sm" aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2">
+            <li>
+              <Link to="/" className="text-black hover:underline">
+                Trang Chủ
+              </Link>
             </li>
-          );
-        })}
-      </ol>
-    </nav>
+            {pathnames.map((_, index) => {
+              // Tạo đường dẫn từng cấp
+              const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
+              const label = findLabelByPath(routeTo);
+              const isLast = index === pathnames.length - 1;
+              return (
+                <li key={routeTo} className="flex items-center">
+                  <ChevronRightIcon className="w-4 h-4 text-black mx-2" />
+                  {isLast ? (
+                    <span className="text-brandSecondary font-medium">
+                      {label}
+                    </span>
+                  ) : (
+                    <Link to={routeTo} className="text-black hover:underline">
+                      {label}
+                    </Link>
+                  )}
+                </li>
+              );
+            })}
+          </ol>
+        </nav>
+      </div>
+    </div>
   );
 };
 
