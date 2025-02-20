@@ -24,7 +24,7 @@ const BreadcrumbDynamic = () => {
 
   return (
     <div className="bg-gray-200 w-full">
-      <div className="w-3/4 mx-auto p-4 z-50 text-black">
+      <div className="md:w-3/4 mx-auto md:p-4  p-2 z-50 text-black">
         <nav className="text-black text-sm" aria-label="Breadcrumb">
           <ol className="flex items-center space-x-2">
             <li>
@@ -41,11 +41,11 @@ const BreadcrumbDynamic = () => {
                 <li key={routeTo} className="flex items-center">
                   <ChevronRightIcon className="w-4 h-4 text-black mx-2" />
                   {isLast ? (
-                    <span className="text-brandSecondary font-medium">
+                    <span className="text-black font-bold ">
                       {label}
                     </span>
                   ) : (
-                    <Link to={routeTo} className="text-black hover:underline">
+                    <Link to={routeTo} className="text-black hover:underline  ">
                       {label}
                     </Link>
                   )}

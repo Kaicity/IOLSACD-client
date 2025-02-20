@@ -3,6 +3,7 @@ import { MapPinIcon, PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import ContentSection from "../../components/ContentSection";
 import BreadcrumbDynamic from "../../components/layouts/Breadcrumb.jsx";
 import { Link } from "lucide-react";
+import { IoLocationSharp } from "react-icons/io5";
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -57,21 +58,15 @@ function ContactPage() {
       <div className="px-2 py-10 lg:px-14 lg:py-10 mb-12">
         <ContentSection header="LIÊN HỆ" />
         <div className="flex items-center justify-center">
-          <div className="container mx-auto p-5 grid lg:grid-cols-1 xl:grid-cols-2 gap-10">
+          <div className="container md:mx-auto  md:p-5 grid lg:grid-cols-1 xl:grid-cols-2 gap-10">
             {/* Google Map Section */}
             <div className="relative">
               {/* Contact Info Section */}
               <div className="col-span-2 mb-10 space-y-1">
-                <h1 className="text-3xl font-bold text-brandSecondary mb-4">
+                <h1 className="text-3xl font-bold text-center text-brandSecondary mb-4">
                   {"ILC Platform".toUpperCase()}
                 </h1>
-                <div className="flex">
-                  <MapPinIcon className="w-5 h-5 text-brandPrimary mr-2" />
-                  <p className="text-black text-md mb-2 flex items-center">
-                    Địa chỉ: Nhà số 32, Khu nhà ở Park Riverside, số 130 Bưng
-                    Ông Thoàn, Phường Phú Hữu, TP. Thủ Đức, TP. HCM
-                  </p>
-                </div>
+               
                 <div className="flex">
                   <EnvelopeIcon className="w-5 h-5 text-brandPrimary mr-2" />
                   Email: info@benthanhlawllc.vn
@@ -86,6 +81,15 @@ function ContactPage() {
                   <Link className="w-5 h-5 text-brandPrimary mr-2" />
                   Hotline: 0934 121 183
                   <p className="text-neutralGrey text-md mb-2 flex items-center"></p>
+                </div>
+
+                <div className="flex">
+                <IoLocationSharp className=" w-12 md:w-6 h-5 text-brandPrimary mr-2"/>
+                  {/* <MapPinIcon className="w-5 h-5 text-[30px] text-brandPrimary mr-2" /> */}
+                  <p className="text-black text-md mb-2 flex items-center">
+                    Địa chỉ: Nhà số 32, Khu nhà ở Park Riverside, số 130 Bưng
+                    Ông Thoàn, Phường Phú Hữu, TP. Thủ Đức, TP. HCM.
+                  </p>
                 </div>
               </div>
               <div className="relative w-full aspect-[21/9] overflow-hidden shadow-md">

@@ -5,7 +5,7 @@ import React from "react";
 
 function Banner() {
   return (
-    <div className="relative isolate flex flex-wrap lg:flex-row items-center gap-4 lg:gap-6 overflow-hidden bg-brandPrimary px-10 py-3 sm:px-6 text-white lg:justify-end">
+    <div className="relative isolate flex flex-wrap lg:flex-row items-center gap-4 lg:gap-6 overflow-hidden bg-brandPrimary px-10 py-3 sm:px-10 text-white lg:justify-end">
       {/* Chữ chạy (marquee) */}
       <div className="w-[380px] overflow-hidden">
         <div className="flex whitespace-nowrap animate-[marquee_10s_linear_infinite]">

@@ -16,7 +16,7 @@ const SearchKnowledge = () => {
           <FaSearch />
         </button>
       </div>
-      <img src={img} alt="" className="h-[220px] w-3/4 mx-auto" />
+      <img src={img} alt="" className=" lg:w-3/4 w-full mx-auto" />
       <div className="text-center font-bold text-red-800">
         <h1 className="text-lg px-0.5 text-brandSecondary ">
           Tổng đài tư vấn Pháp luật
