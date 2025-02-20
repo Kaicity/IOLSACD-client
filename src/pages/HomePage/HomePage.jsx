@@ -6,6 +6,7 @@ import ContentSection from "../../components/ContentSection";
 import ILCKnowledgeSection from "../../components/KnowledgeSection/ILCKnowledgeSection";
 import SliderCardsItem from "../../components/SliderCardsItem";
 import StatisticsSection from "../../components/StatisticsSection";
+import SliderCounterparty from "../../components/SliderCounterparty";
 
 const servicesArray = [
   {
@@ -31,6 +32,22 @@ const servicesArray = [
   },
   {
     id: 7,
+    img: "https://picsum.photos/200?random=7",
+  },
+  {
+    id: 8,
+    img: "https://picsum.photos/200?random=6",
+  },
+  {
+    id: 9,
+    img: "https://picsum.photos/200?random=7",
+  },
+  {
+    id: 10,
+    img: "https://picsum.photos/200?random=6",
+  },
+  {
+    id:11,
     img: "https://picsum.photos/200?random=7",
   },
 ];
@@ -127,19 +144,7 @@ function HomePage() {
 
       {/* <Community /> */}
 
-      <div className="px-4 w-full max-w-screen-2xl mx-auto py-16">
-        <div className="grid md:grid-cols-4 grid-cols-2   xl:grid-cols-7 gap-4">
-          {servicesArray.map((service, index) => (
-            <div className="cursor-pointer" key={service.id}>
-              <img
-                src={service.img}
-                alt={""}
-                className="p-2 h-[110px] w-[200px] mx-auto"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      <SliderCounterparty servicesArray={servicesArray} />
 
       <StatisticsSection />
     </div>

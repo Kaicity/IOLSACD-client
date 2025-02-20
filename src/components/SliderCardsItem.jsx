@@ -3,7 +3,6 @@ import Card from "./Card";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { User_1, User_2, User_3, User_4, User_6, pvt } from "../assets";
 import CardAvatar from "./CardAvatar";
-import clsx from "clsx";
 import CardVideo from "./CardVideo";
 import CardService from "./CardService";
 
@@ -98,6 +97,18 @@ const videosArray = [
     url: "https://www.youtube.com/watch?v=otDdLEScHNk",
   },
   {
+    id: 1,
+    title: "Fullstack Next.js/Nest.js với TypeScript",
+    img: "https://i.ytimg.com/vi/Sklc_fQBmcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDB36t3OPjX6fzEWigqBkR7kdsSQQ",
+    url: "https://www.youtube.com/watch?v=otDdLEScHNk",
+  },
+  {
+    id: 1,
+    title: "Fullstack Next.js/Nest.js với TypeScript",
+    img: "https://i.ytimg.com/vi/Sklc_fQBmcs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLDB36t3OPjX6fzEWigqBkR7kdsSQQ",
+    url: "https://www.youtube.com/watch?v=otDdLEScHNk",
+  },
+  {
     id: 2,
     img: "https://i.ytimg.com/vi/r7TytTlTED4/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAF0iWyJiu9w_GGUnIlUdc11rI3Bw",
     title: "JWT (JSON web token), sử dụng ngôn ngữ TypeScript",
@@ -118,27 +129,13 @@ const videosArray = [
 ];
 
 const servicesArray = [
-  {
-    img: "https://picsum.photos/200?random=1",
-  },
-  {
-    img: "https://picsum.photos/200?random=2",
-  },
-  {
-    img: "https://picsum.photos/200?random=3",
-  },
-  {
-    img: "https://picsum.photos/200?random=4",
-  },
-  {
-    img: "https://picsum.photos/200?random=5",
-  },
-  {
-    img: "https://picsum.photos/200?random=6",
-  },
-  {
-    img: "https://picsum.photos/200?random=7",
-  },
+  { img: "https://picsum.photos/200?random=1" },
+  { img: "https://picsum.photos/200?random=2" },
+  { img: "https://picsum.photos/200?random=3" },
+  { img: "https://picsum.photos/200?random=4" },
+  { img: "https://picsum.photos/200?random=5" },
+  { img: "https://picsum.photos/200?random=6" },
+  { img: "https://picsum.photos/200?random=7" },
 ];
 
 const SliderCardsItem = ({
@@ -154,16 +151,12 @@ const SliderCardsItem = ({
     const updateCardsPerView = () => {
       const width = window.innerWidth;
       if (width < 640) {
-        // Mobile: 1 card
         setCardsPerView(1);
       } else if (width < 768) {
-        // Tablet nhỏ: 2 card
         setCardsPerView(2);
       } else if (width < 1024) {
-        // Tablet lớn: 3 card
         setCardsPerView(3);
       } else {
-        // Desktop: 4 card
         setCardsPerView(4);
       }
     };
@@ -173,70 +166,73 @@ const SliderCardsItem = ({
     return () => window.removeEventListener("resize", updateCardsPerView);
   }, []);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1: tiến, -1: lùi
+  // Gom active index và direction vào 1 state duy nhất
+  const [sliderState, setSliderState] = useState({ index: 0, direction: 1 });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((prev) => {
-        let nextIndex = prev + direction;
+      setSliderState((prev) => {
+        let nextIndex = prev.index + prev.direction;
+        let newDirection = prev.direction;
 
+        // Nếu đã đạt đến cuối mảng (lưu ý: cardArray.length - cardsPerView là giới hạn index)
         if (nextIndex >= cardArray.length - cardsPerView) {
-          setDirection(-1); // Đến cuối -> đổi hướng lùi
-          return prev - 1;
+          newDirection = -1;
+          nextIndex = prev.index - 1;
         }
-        if (nextIndex <= 0) {
-          setDirection(1); // Đến đầu -> đổi hướng tiến
-          return prev + 1;
+        // Nếu đã đạt đến đầu mảng
+        else if (nextIndex <= 0) {
+          newDirection = 1;
+          nextIndex = prev.index + 1;
         }
-
-        return nextIndex;
+        return { index: nextIndex, direction: newDirection };
       });
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [activeIndex, cardsPerView, direction]);
+  }, [cardsPerView]);
 
   const handlePrev = () => {
-    if (activeIndex > 0) {
-      setActiveIndex(activeIndex - 1);
-    }
-    setDirection(-1);
-    setActiveIndex((prev) => Math.max(prev - 1, 0));
+    setSliderState((prev) => {
+      const newIndex = Math.max(prev.index - 1, 0);
+      return { index: newIndex, direction: -1 };
+    });
   };
 
   const handleNext = () => {
-    if (activeIndex < cardArray.length - cardsPerView) {
-      setActiveIndex(activeIndex + 1);
-    }
-    setDirection(1);
-    setActiveIndex((prev) =>
-      Math.min(prev + 1, cardArray.length - cardsPerView)
-    );
+    setSliderState((prev) => {
+      const newIndex = Math.min(prev.index + 1, cardArray.length - cardsPerView);
+      return { index: newIndex, direction: 1 };
+    });
   };
+
   const [dragStartX, setDragStartX] = useState(null);
   const [dragDelta, setDragDelta] = useState(0);
   const containerRef = useRef(null);
 
-  const handleMouseDown = (e) => {
+  const handleDragStart = (e) => {
     setDragStartX(e.clientX);
   };
 
-  const handleMouseMove = (e) => {
+  const handleDragMove = (e) => {
     if (dragStartX !== null) {
       setDragDelta(e.clientX - dragStartX);
     }
   };
 
-  const handleMouseUp = () => {
+  const handleDragEnd = () => {
     if (dragDelta > 50) {
-      // Kéo sang phải (quay về slider trước)
-      setActiveIndex((prev) => Math.max(prev - 1, 0));
+      // Kéo sang phải: slider quay về trước
+      setSliderState((prev) => {
+        const newIndex = Math.max(prev.index - 1, 0);
+        return { index: newIndex, direction: -1 };
+      });
     } else if (dragDelta < -50) {
-      // Kéo sang trái (tiến tới slider sau)
-      setActiveIndex((prev) =>
-        Math.min(prev + 1, cardArray.length - cardsPerView)
-      );
+      // Kéo sang trái: slider chuyển về sau
+      setSliderState((prev) => {
+        const newIndex = Math.min(prev.index + 1, cardArray.length - cardsPerView);
+        return { index: newIndex, direction: 1 };
+      });
     }
     setDragStartX(null);
     setDragDelta(0);
@@ -247,16 +243,16 @@ const SliderCardsItem = ({
       {isCard && (
         <div
           ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
           className="overflow-hidden"
         >
           <div
             className="flex transition-transform duration-500 ease-in-out select-none"
             style={{
-              transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+              transform: `translateX(-${(sliderState.index * 100) / cardsPerView}%)`,
             }}
           >
             {cardArray.map((card, index) => (
@@ -275,16 +271,16 @@ const SliderCardsItem = ({
       {isCardAvatar && (
         <div
           ref={containerRef}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
+          onMouseDown={handleDragStart}
+          onMouseMove={handleDragMove}
+          onMouseUp={handleDragEnd}
+          onMouseLeave={handleDragEnd}
           className="overflow-hidden"
         >
           <div
             className="flex transition-transform duration-500 ease-in-out select-none"
             style={{
-              transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+              transform: `translateX(-${(sliderState.index * 100) / cardsPerView}%)`,
             }}
           >
             {userAvatarsArray.map((card, index) => (
@@ -304,7 +300,7 @@ const SliderCardsItem = ({
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
-            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+            transform: `translateX(-${(sliderState.index * 100) / cardsPerView}%)`,
           }}
         >
           {videosArray.map((card, index) => (
@@ -323,7 +319,7 @@ const SliderCardsItem = ({
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{
-            transform: `translateX(-${(activeIndex * 100) / cardsPerView}%)`,
+            transform: `translateX(-${(sliderState.index * 100) / cardsPerView}%)`,
           }}
         >
           {servicesArray.map((card, index) => (
@@ -340,21 +336,19 @@ const SliderCardsItem = ({
 
       {isPrevNextBtn && (
         <div>
-          {/* Nút điều hướng Prev */}
           <button
             className="absolute md:left-0 left-2 z-10 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
             onClick={handlePrev}
-            disabled={activeIndex === 0}
+            disabled={sliderState.index === 0}
           >
             <div className="p-2">
               <ChevronLeft className="w-6 h-6" />
             </div>
           </button>
-          {/* Nút điều hướng Next */}
           <button
             className="absolute md:right-0 right-2 top-1/2 transform -translate-y-1/2 bg-brandSecondary rounded-full h-12 w-12 text-white focus:bg-neutralDGrey"
             onClick={handleNext}
-            disabled={activeIndex >= cardArray.length - cardsPerView}
+            disabled={sliderState.index >= cardArray.length - cardsPerView}
           >
             <div className="p-3">
               <ChevronRight className="w-6 h-6" />
