@@ -47,8 +47,8 @@ export default function OutLitigationPage() {
 
   return (
     <div className="w-3/4 mx-auto grid md:grid-cols-[2fr_1fr] gap-2 relative">
-      <div className="border-r border-gray-300 p-4 space-y-4">
-        <h1 className="font-semibold text-xl py-2">Giới Thiệu</h1>
+      <div className="md:border-r md:border-gray-400 md:p-4 p-2 space-y-4">
+      <h1 className="font-semibold text-xl py-2">Giới Thiệu</h1>
 
         <div className="space-y-6">
           {paragraphs.map((item, index) => (

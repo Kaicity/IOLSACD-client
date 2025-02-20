@@ -16,9 +16,9 @@ const BlogCard = ({
 
   return (
     <div className=" max-w-7xl mx-auto md:w-3/4" id="blog-product">
-      <div className="flex flex-wrap items-center gap-12">
+      <div className="flex flex-wrap lg:flex-nowrap md:justify-center items-center gap-12">
         <motion.div
-          className="md:w-1/2 px-2"
+          className="lg:w-3/4 w-full px-2"
           variants={fadeInFramer("up", 0.3)}
           initial="hidden"
           whileInView="show"

@@ -46,7 +46,7 @@ export default function AboutPage() {
 
   return (
     <div className="md:w-3/4 w-full mx-auto grid md:grid-cols-[2fr_1fr] grid-cols-1 gap-2 relative">
-      <div className="md:border-r md:border-gray-400 p-4 space-y-4">
+      <div className="md:border-r md:border-gray-400 md:p-4 p-2 space-y-4">
         <h1 className="font-semibold text-xl py-2">CatalogueOnlinePage</h1>
 
         <div className="space-y-6">

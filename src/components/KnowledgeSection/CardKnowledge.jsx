@@ -8,17 +8,17 @@ export default function CardKnowledge({ img, header, content }) {
         <img
           src={img}
           alt={header}
-          className="md:h-[310px] h-[270px] w-full mx-auto transform transition-transform duration-300 ease-in-out group-hover:scale-110"
+          className="md:h-[310px] aspect-[2/1] w-full mx-auto transform transition-transform duration-300 ease-in-out group-hover:scale-110"
         />
       </div>
-      <div className="p-2">
-        <h1 className="text-base font-semibold p-1 hover:text-brandSecondary">
+      <div className="text-justify">
+        <h1 className="text-lg font-semibold p-1 hover:text-brandSecondary">
           {header}
         </h1>
-        <p className="text-[14px] p-1 line-clamp-3">{content}</p>
+        <p className="text-base p-1 line-clamp-3">{content}</p>
         <a
           href=""
-          className="text-[14px] w-full inline-block p-4 mx-2 text-end text-brandSecondary font-semibold hover:mx-1 hover:text-red-600"
+          className="text-base w-full inline-block p-4 mx-2 text-end text-brandSecondary font-semibold hover:mx-1 hover:text-red-600"
         >
           Xem Thêm
         </a>
