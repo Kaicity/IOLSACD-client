@@ -1,11 +1,12 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
-export default function CardKnowledge({ ...props }) {
+export default function CardKnowledge({...props}) {
   var getID = (e) => {
     e.preventDefault();
-    console.log("Prevent Default",props.id);
+    console.log("Prevent Default", props.id);
   };
-  
+
   return (
     <div className="group text-start cursor-pointer">
       {/* Container ảnh với overflow-hidden */}
@@ -21,13 +22,14 @@ export default function CardKnowledge({ ...props }) {
           {props.title}
         </h1>
         <p className="text-base p-1 line-clamp-3">{props.summary}</p>
-        <a
-          href=""
-          className="text-base w-full inline-block p-4 mx-2 text-end text-brandSecondary font-semibold hover:mx-1 hover:text-red-600"  
-          onClick={getID}
+        <Link
+          to={`/tong-quan/article.${
+            props.title ? props.title.replace(/\s/g, "-") : "unknown"
+          }=${props.id}`}
+          className="text-base w-full inline-block p-4 mx-2 text-end text-brandSecondary font-semibold hover:mx-1 hover:text-red-600"
         >
           Xem Thêm
-        </a>
+        </Link>
       </div>
     </div>
   );

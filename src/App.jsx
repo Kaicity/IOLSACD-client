@@ -10,6 +10,7 @@ import navLinks from "./constants/navLinks";
 import getPageComponent from "./renderPages";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import LoadingScreenSlash from "./components/layouts/LoadingScreenSlash.jsx";
+import DetailPage from "./pages/AboutPage/DetailPage/DetailPage.jsx";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
               ))}
           </Route>
         ))}
+        {/* <Route path="/tong-quan/:slug" element={<DetailPage />} /> */}
+
         {/* Route cho trang lỗi */}
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
