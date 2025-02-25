@@ -1,44 +1,51 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import BreadcrumbDynamic from "../../components/layouts/Breadcrumb";
-import { Outlet, useLocation } from "react-router-dom";
+import {Outlet, useLocation} from "react-router-dom";
 import LayoutPage from "../../components/LayoutPage";
+import {getArticles} from "../../api/Article/article";
 
 export default function AboutPage() {
   const location = useLocation();
   const isRootPath = location.pathname === "/tong-quan";
 
-  const cardData = [
-    {
-      img: "https://picsum.photos/200?random=1",
-      header: "Quy định về người đại diện hợp pháp trong tố tụng dân sự - ILC",
-      content:
-        "Cơ quan, tổ chức, cá nhân khởi kiện để bảo vệ quyền và lợi ích hợp pháp của người khác cũng là người đại diện theo pháp luật trong tố tụng dân sự của người được bảo vệ. Người đại diện trong tố tụng dân sự bao gồm người đại diện theo pháp luật và người đại diện theo ủy quyền. Dưới đây là các thông tin cần thiết giúp bạn đọc hiểu rõ hơn về vai trò của đại diện tố tụng. Hãy cùng Ben Thanh Law tìm hiểu nhé!",
-    },
-    {
-      img: "https://picsum.photos/200?random=2",
-      header: "Tiêu đề Card 2",
-      content: "Nội dung cho card thứ 2.",
-    },
-    {
-      img: "https://picsum.photos/200?random=3",
-      header: "Tiêu đề Card 3",
-      content: "Nội dung cho card thứ 3.",
-    },
-    {
-      img: "https://picsum.photos/200?random=4",
-      header: "Tiêu đề Card 4",
-      content: "Nội dung cho card thứ 4.",
-    },
-  ];
+  const [articles, setArticles] = useState([]);
+  const [pagination, setPagination] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // Tạm thời searchQuery = "" (mặc định)
+  const searchQuery = "";
+
+  useEffect(() => {
+    setLoading(true);
+    getArticles(searchQuery) // Nếu searchQuery = "" hoặc "Lập trình" tùy trường hợp
+      .then((res) => {
+        // Giả sử API trả về tất cả bài viết
+        const {articles, pagination} = res.data.data;
+
+        // Nếu API không lọc theo type, bạn có thể tự lọc ở đây:
+        const filteredArticles = articles.filter(
+          (article) => article.type === "Lập trình"
+        );
+
+        setArticles(filteredArticles);
+        setPagination(pagination);
+      })
+      .catch((error) => {
+        console.error("Error fetching articles:", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, [searchQuery]);
 
   return (
     <div className="bg-white w-full">
       <BreadcrumbDynamic />
 
-      {/* Nội dung Route cha */}
-      {isRootPath && <LayoutPage header={"Tổng Quan"} cardData={cardData} />}
+      {/* Nếu path là "/tong-quan", hiển thị LayoutPage */}
+      {isRootPath && <LayoutPage header={"Tổng Quan"} data={articles} />}
 
-      {/* Nội dung cho Route con */}
+      {/* Hiển thị nội dung của route con (nếu có) */}
       <Outlet />
     </div>
   );
