@@ -21,12 +21,9 @@ export const deleteArticle = (id) => {
   return instance.delete(`/article/${id}`);
 };
 
-export const getArticles = (search = '') => {
-  if (search) {
-    // Nếu có search, gọi API với query
-    return instance.get(`/article/?search=${search}`);
-  } else {
-    // Nếu search rỗng, sử dụng hàm getAllArticles đã định nghĩa
-    return getAllArticles();
-  }
+
+// Giả sử API hỗ trợ query params: ?search=...&page=...&limit=...
+export const getArticles = (search = "", page = 1, limit = 20) => {
+  return instance.get(`/article/?search=${search}&page=${page}&limit=${limit}`);
 };
+

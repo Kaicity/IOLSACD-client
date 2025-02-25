@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import BreadcrumbDynamic from "../../components/layouts/Breadcrumb";
-import {Outlet, useLocation} from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import LayoutPage from "../../components/LayoutPage";
-import {getArticles} from "../../api/Article/article";
+import { getArticles } from "../../api/Article/article";
 
 export default function AboutPage() {
   const location = useLocation();
@@ -11,23 +11,19 @@ export default function AboutPage() {
   const [articles, setArticles] = useState([]);
   const [pagination, setPagination] = useState({});
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Tạm thời searchQuery = "" (mặc định)
   const searchQuery = "";
 
   useEffect(() => {
     setLoading(true);
-    getArticles(searchQuery) // Nếu searchQuery = "" hoặc "Lập trình" tùy trường hợp
+
+    getArticles(searchQuery, currentPage, 6)
       .then((res) => {
-        // Giả sử API trả về tất cả bài viết
-        const {articles, pagination} = res.data.data;
-
-        // Nếu API không lọc theo type, bạn có thể tự lọc ở đây:
-        const filteredArticles = articles.filter(
-          (article) => article.type === "Lập trình"
-        );
-
-        setArticles(filteredArticles);
+        // res.data.data chứa { articles, pagination }
+        const { articles, pagination } = res.data.data;
+        setArticles(articles);
         setPagination(pagination);
       })
       .catch((error) => {
@@ -36,14 +32,26 @@ export default function AboutPage() {
       .finally(() => {
         setLoading(false);
       });
-  }, [searchQuery]);
+  }, [searchQuery, currentPage]);
+
+  // Hàm thay đổi trang
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <div className="bg-white w-full">
       <BreadcrumbDynamic />
 
       {/* Nếu path là "/tong-quan", hiển thị LayoutPage */}
-      {isRootPath && <LayoutPage header={"Tổng Quan"} data={articles} />}
+      {isRootPath && (
+        <LayoutPage
+          header={"Tổng Quan"}
+          data={articles}
+          pagination={pagination}
+          onPageChange={handlePageChange}
+        />
+      )}
 
       {/* Hiển thị nội dung của route con (nếu có) */}
       <Outlet />
