@@ -40,7 +40,7 @@ function ArticleList({ searchQuery = '' }) {
             style={{ width: '200px', height: 'auto' }}
           />
           <p><strong>Type:</strong> {article.type}</p>
-          <p><strong>Summary:</strong> {article.summary}</p>
+          <p><strong>Summary:</strong> {article.content}</p>
           <p><strong>Views:</strong> {article.views}</p>
           <p>
             <strong>Create Date:</strong> {new Date(article.createDate).toLocaleString()}

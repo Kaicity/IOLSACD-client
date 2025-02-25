@@ -4,6 +4,7 @@ const Paragraph = ({ children, img }) => {
       <p>{children}</p>
       {img && <img src={img} alt="" className="h-auto w-full my-4" />}
     </div>
+    
   );
 };
 
