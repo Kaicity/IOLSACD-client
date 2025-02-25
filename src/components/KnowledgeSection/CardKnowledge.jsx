@@ -1,6 +1,11 @@
 import React from "react";
 
 export default function CardKnowledge({ ...props }) {
+  var getID = (e) => {
+    e.preventDefault();
+    console.log("Prevent Default",props.id);
+  };
+  
   return (
     <div className="group text-start cursor-pointer">
       {/* Container ảnh với overflow-hidden */}
@@ -18,7 +23,8 @@ export default function CardKnowledge({ ...props }) {
         <p className="text-base p-1 line-clamp-3">{props.summary}</p>
         <a
           href=""
-          className="text-base w-full inline-block p-4 mx-2 text-end text-brandSecondary font-semibold hover:mx-1 hover:text-red-600"
+          className="text-base w-full inline-block p-4 mx-2 text-end text-brandSecondary font-semibold hover:mx-1 hover:text-red-600"  
+          onClick={getID}
         >
           Xem Thêm
         </a>
