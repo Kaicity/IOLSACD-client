@@ -1,9 +1,10 @@
 import { div } from "framer-motion/client";
-import { SiZalo } from "react-icons/si";
 import ItemKnowledge from "../../../components/KnowledgeSection/ItemKnowledge";
 import Paragraph from "../../../components/Paragraph";
+import ArticleList from "../../../components/ArticleList";
 
 export default function TeamPage() {
+
   const cardData = [
     {
       img: "https://picsum.photos/200?random=1",
@@ -57,7 +58,7 @@ export default function TeamPage() {
             </Paragraph>
           ))}
         </div>
-
+               <ArticleList/>
         <div className="mt-4 font-semibold text-xl">
           {" "}
           <h1 className="mb-4 ">Chia sẽ</h1>
