@@ -15,14 +15,15 @@ export default function AboutPage() {
 
   // Tạm thời searchQuery = "" (mặc định)
   const searchQuery = "";
-
+  const type="Lập trình";
   useEffect(() => {
     setLoading(true);
 
-    getArticles(searchQuery, currentPage, 6)
+    getArticles(searchQuery, currentPage, 6,type)
       .then((res) => {
         // res.data.data chứa { articles, pagination }
         const { articles, pagination } = res.data.data;
+        console.log("articles", articles);
         setArticles(articles);
         setPagination(pagination);
       })

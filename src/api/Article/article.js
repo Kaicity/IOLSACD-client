@@ -23,7 +23,7 @@ export const deleteArticle = (id) => {
 
 
 // Giả sử API hỗ trợ query params: ?search=...&page=...&limit=...
-export const getArticles = (search = "", page = 1, limit = 20) => {
-  return instance.get(`/article/?search=${search}&page=${page}&limit=${limit}`);
+export const getArticles = (search = "", page = 1, limit = 20, type = "Lập trình") => {
+  return instance.get(`/article/?type=${encodeURIComponent(type)}&search=${search}&page=${page}&limit=${limit}`);
 };
 
