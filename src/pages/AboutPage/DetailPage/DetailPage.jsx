@@ -26,7 +26,6 @@ export default function DetailPage() {
     getArticleById(id)
       .then((res) => {
         const articleData = res.data.data;
-        console.log("Article:", articleData);
         setArticle(articleData);
       })
       .catch((error) => {
@@ -42,7 +41,8 @@ export default function DetailPage() {
     getArticles(searchQuery, currentPage, 6)
       .then((res) => {
         const {articles, pagination} = res.data.data;
-        setArticles(articles);
+        const newArticles = articles.slice(1);
+        setArticles(newArticles);
         setPagination(pagination);
       })
       .catch((error) => {
