@@ -25,7 +25,7 @@ const BlogCard = ({
           viewport={{once: true, amount: 0.5}}
         >
           <div className=" border-1 border-red-400 border-l-4">
-            <h2 className="text-2xl lg:text-3xl font-extrabold text-brandSecondary mx-2 mb-2">
+            <h2 className="text-2xl lg:text-2xl font-extrabold text-brandSecondary mx-2 mb-2 uppercase">
               {title}
             </h2>
             <h2 className="text-base font-light px-2 text-neutralDGrey mb-4  border-b-2">

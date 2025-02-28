@@ -13,7 +13,7 @@ export default function DetailPage() {
   const [currentPage, setCurrentPage] = useState(1);
   // Khởi tạo article là object
   const [article, setArticle] = useState({});
-
+  const [targetId, setTargetId] = useState(0);
   const searchQuery = "";
   const {slug} = useParams();
 
@@ -26,6 +26,8 @@ export default function DetailPage() {
     getArticleById(id)
       .then((res) => {
         const articleData = res.data.data;
+        console.log("articleData", articleData.id);
+        setTargetId(articleData.id);
         setArticle(articleData);
       })
       .catch((error) => {
@@ -40,9 +42,42 @@ export default function DetailPage() {
     setLoading(true);
     getArticles(searchQuery, currentPage, 6)
       .then((res) => {
-        const {articles, pagination} = res.data.data;
-        const newArticles = articles.slice(1);
-        setArticles(newArticles);
+        const { articles: fetchedArticles, pagination } = res.data.data;
+  
+        // Nếu targetId đã có (được set từ useEffect trước)
+        if (targetId) {
+          // Tìm vị trí của phần tử có targetId trong mảng gốc
+          const originalIndex = fetchedArticles.findIndex(
+            (article) => article.id === targetId
+          );
+  
+          // Loại bỏ phần tử có targetId
+          const filteredArticles = fetchedArticles.filter(
+            (article) => article.id !== targetId
+          );
+  
+          const countNeeded = 4;
+          let newArticles = [];
+  
+          // Tính toán vị trí bắt đầu: nếu originalIndex vượt quá độ dài mảng filteredArticles thì đặt về 0
+          const startIndex =
+            originalIndex < filteredArticles.length ? originalIndex : 0;
+  
+          // Lấy các phần tử từ startIndex
+          newArticles = filteredArticles.slice(startIndex, startIndex + countNeeded);
+  
+          // Nếu không đủ 4 phần tử, bổ sung thêm từ đầu mảng (wrap around)
+          if (newArticles.length < countNeeded) {
+            const remaining = countNeeded - newArticles.length;
+            newArticles = newArticles.concat(filteredArticles.slice(0, remaining));
+          }
+  
+          console.log("newArticles", newArticles);
+          setArticles(newArticles);
+        } else {
+          // Nếu targetId chưa có, bạn có thể đặt mặc định là 4 phần tử đầu tiên
+          setArticles(fetchedArticles.slice(0, 4));
+        }
         setPagination(pagination);
       })
       .catch((error) => {
@@ -51,7 +86,8 @@ export default function DetailPage() {
       .finally(() => {
         setLoading(false);
       });
-  }, [searchQuery, currentPage]);
+  }, [searchQuery, currentPage, targetId]);
+  
 
   const sanitizedHTML = DOMPurify.sanitize(article.content);
 

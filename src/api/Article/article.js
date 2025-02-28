@@ -27,3 +27,4 @@ export const getArticles = (search = "", page = 1, limit = 20, type = "Lập tr�
   return instance.get(`/article/?type=${encodeURIComponent(type)}&search=${search}&page=${page}&limit=${limit}`);
 };
 
+// role tin tức , role tổng quan là gì , role lập trình là gì
